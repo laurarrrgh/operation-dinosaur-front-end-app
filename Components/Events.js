@@ -1,20 +1,21 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
-const DiaryScreen = ({
+const EventsScreen = ({
     params,
 }) => (
-    <View style={styles.diary}>
-        <Text>Dear Diary... Git Gud</Text>
+    <View style={styles.events}>
+        <Text>I'm so goddamn eventful</Text>
     </View>
 );
 
 const styles = StyleSheet.create({
-    diary: {
+    events: {
       flex: 1,
+      textAlign: 'center',
       backgroundColor: '#fff',
       justifyContent: 'center',
     },
   });
 
-export default DiaryScreen;
+export default EventsScreen;

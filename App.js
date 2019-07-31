@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import HomeScreen from './Components/HomeScreen'
-import { createAppContainer, createStackNavigator } from 'react-navigation';
+import { createAppContainer, createBottomTabNavigator } from 'react-navigation';
 import {StackNavigator} from 'react-navigation'
 import DiaryScreen from './Components/Diary'
 import MedScreen from './Components/meds'
+import EventsScreen from './Components/Events';
+import OverviewScreen from './Components/Overview';
 
-const App = createStackNavigator({
+const App = createBottomTabNavigator({
   Home:  {screen: HomeScreen},
   DiaryScreen: {screen: DiaryScreen}, 
-  MedScreen: {screen: MedScreen}
+  MedScreen: {screen: MedScreen},
+  EventsScreen: {screen : EventsScreen},
+  OverviewScreen: {screen: OverviewScreen}
 })
 
 export default createAppContainer(App);
