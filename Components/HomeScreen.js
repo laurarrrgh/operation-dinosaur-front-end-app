@@ -1,30 +1,23 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import {Button} from 'native-base'
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
 function HomeScreen(props) {
   return (
     <View style={styles.container}>
-      <Text>This is the HomePage</Text>
-      <Button title='Go to Meds' block={true} onPress={()=>props.navigation.navigate('MedScreen')}>
-        <Text style={{color: 'white'}}>Go to Meds</Text> 
-        </Button>
-        <Button title='Go to Diary' block={true} onPress={()=>props.navigation.navigate('DiaryScreen')}>
-        <Text style={{color: 'white'}}>Go to Diary</Text> 
-        </Button>
-  </View>
-  )
+      <Text>{`Welcome to ${
+        props.screenProps.user.first_name
+      }'s homepage`}</Text>
+    </View>
+  );
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-  },
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    textAlign: "center"
+  }
 });
 
-export default HomeScreen
+export default HomeScreen;
