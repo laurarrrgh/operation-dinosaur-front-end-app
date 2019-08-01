@@ -20,6 +20,7 @@ export default class MedScreen extends Component {
         {meds.map(med => (
           <Text key={med.type}> {med.type} </Text>
         ))}
+        <Text>{this.props.screenProps.beans}</Text>
       </View>
     );
   }
