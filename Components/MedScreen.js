@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import moment from "moment";
 
 export default class MedScreen extends Component {
   constructor(props) {
@@ -17,7 +18,11 @@ export default class MedScreen extends Component {
     return (
       <View style={styles.container}>
         {meds.map(med => (
-          <Text key={med.type}> {med.type} </Text>
+          <View key={med.id}>
+            <Text> Medication: {med.type} </Text>
+            <Text> Due: {moment(med.due).format("HH:MM")}</Text>
+            <Text> Taken: {med.taken ? "true" : "false"}</Text>
+          </View>
         ))}
       </View>
     );
