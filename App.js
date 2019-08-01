@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, styleSheet } from "react-native";
 import HomeScreen from "./Components/HomeScreen";
 import { createAppContainer, createBottomTabNavigator } from "react-navigation";
 import { StackNavigator } from "react-navigation";
