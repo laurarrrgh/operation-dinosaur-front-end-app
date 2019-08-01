@@ -1,12 +1,19 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import moment from "moment"
 
-const DiaryScreen = ({
-    params,
-}) => (
+const DiaryScreen = props => (
     <View style={styles.diary}>
-        <Text>Dear Diary... Git Gud</Text>
-    </View>
+          {props.screenProps.quiz.map(({completed_at, mood, stiffness, slowness, tremor, id}) => (
+            <View key={id}>
+              <Text>Taken: {moment(completed_at).format('DD-MM-YYYY HH:MM')}</Text>
+              <Text>Mood score: {mood}</Text>
+              <Text>Stiffness score: {stiffness}</Text>
+              <Text>Slowness score: {slowness}</Text>
+              <Text>Tremor score: {tremor}</Text>
+            </View>
+          ))}
+        </View>
 );
 
 const styles = StyleSheet.create({
