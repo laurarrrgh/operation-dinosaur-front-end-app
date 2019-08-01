@@ -7,13 +7,33 @@ import DiaryScreen from "./Components/Diary";
 import MedScreen from "./Components/MedScreen";
 import EventsScreen from "./Components/Events";
 import OverviewScreen from "./Components/Overview";
+import api from "./Utils/apiUtils";
 
 class App extends Component {
   state = {
-    beans: "legumes"
+    user_id: 1,
+    user: {},
+    events: [],
+    quiz: {},
+    meds: []
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    const { user_id } = this.state;
+
+    api.getUser(user_id).then(user => {
+      this.setState({ user });
+    });
+    api.getEvents(user_id).then(events => {
+      this.setState({ events });
+    });
+    api.getQuiz(user_id).then(quiz => {
+      this.setState({ quiz });
+    });
+    api.getMeds(user_id).then(meds => {
+      this.setState({ meds });
+    });
+  }
 
   render() {
     const NavBar = createBottomTabNavigator({
@@ -24,7 +44,8 @@ class App extends Component {
       OverviewScreen: { screen: OverviewScreen }
     });
     const AppContainer = createAppContainer(NavBar);
-    return <AppContainer screenProps={{ beans: this.state.beans }} />;
+    const details = this.state;
+    return <AppContainer screenProps={details} />;
   }
 }
 

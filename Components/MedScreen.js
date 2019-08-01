@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import api from "../Utils/apiUtils";
 
 export default class MedScreen extends Component {
   constructor(props) {
@@ -10,7 +9,7 @@ export default class MedScreen extends Component {
     };
   }
   componentDidMount() {
-    api.getMeds(1).then(({ meds }) => this.setState({ meds }));
+    this.setState(this.props.screenProps.meds);
   }
 
   render() {
@@ -20,7 +19,6 @@ export default class MedScreen extends Component {
         {meds.map(med => (
           <Text key={med.type}> {med.type} </Text>
         ))}
-        <Text>{this.props.screenProps.beans}</Text>
       </View>
     );
   }

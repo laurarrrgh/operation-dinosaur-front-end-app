@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 function HomeScreen(props) {
   return (
     <View style={styles.container}>
-      <Text>This is the HomePage</Text>
+      <Text>{`Welcome to homepage`}</Text>
     </View>
   );
 }
