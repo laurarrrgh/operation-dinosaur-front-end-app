@@ -18,8 +18,8 @@ const getEvents = async user_id => {
 };
 
 const getQuiz = async user_id => {
-  const { data } = await axios.get(`${BASE_URL}/quiz/${user_id}`);
-  return data;
+  const { data: {quizzes} } = await axios.get(`${BASE_URL}/quiz/${user_id}`);
+  return quizzes;
 };
 
 module.exports = { getMeds, getUser, getEvents, getQuiz };
