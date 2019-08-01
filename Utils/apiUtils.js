@@ -13,8 +13,8 @@ const getUser = async user_id => {
 };
 
 const getEvents = async user_id => {
-  const { data } = await axios.get(`${BASE_URL}/events/${user_id}`);
-  return data;
+  const { data : {events}} = await axios.get(`${BASE_URL}/events/${user_id}`);
+  return events;
 };
 
 const getQuiz = async user_id => {

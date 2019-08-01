@@ -1,9 +1,14 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-const EventsScreen = params => (
+const EventsScreen = props => (
   <View style={styles.events}>
-    <Text>{JSON.stringify(params.screenProps.events)}</Text>
+    {props.screenProps.events.map(({id, time, description, user_id}) => (
+      <View key={id}>
+        <Text >{`Time: ${time}`}</Text>
+        <Text >{`event: ${description}`}</Text>
+      </View>
+    ))}
   </View>
 );
 
