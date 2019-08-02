@@ -20,7 +20,6 @@ class App extends Component {
 
   componentDidMount() {
     const { user_id } = this.state;
-
     api.getUser(user_id).then(user => {
       this.setState({ user });
     });

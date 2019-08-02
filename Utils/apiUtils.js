@@ -1,5 +1,4 @@
 const axios = require("axios");
-
 const BASE_URL = "https://medirep-api.herokuapp.com/api/";
 
 const getMeds = async user_id => {
@@ -28,4 +27,26 @@ const getQuiz = async user_id => {
   return quizzes;
 };
 
-module.exports = { getMeds, getUser, getEvents, getQuiz };
+const get4DigitNumber = async user_id => {
+  const {
+    data: { code }
+  } = await axios.get(`${BASE_URL}/codes/${user_id}`);
+  return code;
+};
+
+const postNewMedication = async (user_id, type, due) => {
+  const newMeds = { type: type, due: due };
+  const { data } = await axios.post(`${BASE_URL}/meds/${user_id}`, {
+    ...newMeds
+  });
+  return data;
+};
+
+module.exports = {
+  getMeds,
+  getUser,
+  getEvents,
+  getQuiz,
+  get4DigitNumber,
+  postNewMedication
+};

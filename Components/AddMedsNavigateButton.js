@@ -2,16 +2,15 @@ import { Button } from "native-base";
 import React, { Component } from "react";
 import { Text, StyleSheet } from "react-native";
 
-const HandshakeNavigateButton = props => {
+const AddMedsNavigateButton = props => {
   return (
     <Button
       style={styles.container}
-      title="pair alexa"
       onPress={() => {
-        props.navigation.navigate("Handshake");
+        props.navigation.navigate("AddMeds");
       }}
     >
-      <Text>Pair Alexa</Text>
+      <Text>Add More Medication</Text>
     </Button>
   );
 };
@@ -24,4 +23,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HandshakeNavigateButton;
+export default AddMedsNavigateButton;
