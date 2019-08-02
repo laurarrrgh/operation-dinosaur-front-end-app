@@ -31,7 +31,7 @@ const get4DigitNumber = async user_id => {
   const {
     data: { code }
   } = await axios.get(`${BASE_URL}/codes/${user_id}`);
-  return code;
+  return code.code;
 };
 
 const postNewMedication = async (user_id, type, due) => {
