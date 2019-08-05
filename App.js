@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { View, Text, styleSheet } from "react-native";
 import HomeScreen from "./Components/HomeScreen";
 import { createAppContainer, createBottomTabNavigator } from "react-navigation";
-import { StackNavigator } from "react-navigation";
 import DiaryScreen from "./Components/Diary";
 import MedScreen from "./Components/MedScreen";
 import EventsScreen from "./Components/Events";
