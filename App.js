@@ -1,13 +1,11 @@
-import React, { Component } from "react";
-import { View, Text, styleSheet } from "react-native";
-import HomeScreen from "./Components/HomeScreen";
-import { createAppContainer, createBottomTabNavigator } from "react-navigation";
-import { StackNavigator } from "react-navigation";
-import DiaryScreen from "./Components/Diary";
-import MedScreen from "./Components/MedScreen";
-import EventsScreen from "./Components/Events";
-import OverviewScreen from "./Components/Overview";
-import api from "./Utils/apiUtils";
+import React, { Component } from 'react';
+import HomeScreen from './Components/HomeScreen';
+import { createAppContainer, createBottomTabNavigator } from 'react-navigation';
+import DiaryScreen from './Components/Diary';
+import MedScreen from './Components/MedScreen';
+import EventsScreen from './Components/Events';
+import OverviewScreen from './Components/Overview';
+import api from './Utils/apiUtils';
 
 class App extends Component {
   state = {
