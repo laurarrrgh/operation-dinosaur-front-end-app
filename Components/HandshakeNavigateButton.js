@@ -11,7 +11,7 @@ const HandshakeNavigateButton = props => {
         props.navigation.navigate('Handshake');
       }}
     >
-      <Text>Click My Button</Text>
+      <Text>Pair Alexa</Text>
     </Button>
   );
 };
