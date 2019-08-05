@@ -8,6 +8,8 @@ import MedScreen from "./Components/MedScreen";
 import EventsScreen from "./Components/Events";
 import OverviewScreen from "./Components/Overview";
 import api from "./Utils/apiUtils";
+import { Notifications } from "expo";
+import * as Permissions from "expo-permissions";
 
 class App extends Component {
   state = {
@@ -15,12 +17,13 @@ class App extends Component {
     user: {},
     events: [],
     quiz: {},
-    meds: []
+    meds: [],
+    token: null,
+    notification: null
   };
 
   componentDidMount() {
     const { user_id } = this.state;
-
     api.getUser(user_id).then(user => {
       this.setState({ user });
     });
@@ -38,14 +41,35 @@ class App extends Component {
   render() {
     const NavBar = createBottomTabNavigator({
       Home: { screen: HomeScreen },
-      DiaryScreen: { screen: DiaryScreen },
-      MedScreen: { screen: MedScreen },
-      EventsScreen: { screen: EventsScreen },
-      OverviewScreen: { screen: OverviewScreen }
+      Diary: { screen: DiaryScreen },
+      Medication: { screen: MedScreen },
+      Events: { screen: EventsScreen },
+      Overview: { screen: OverviewScreen }
     });
     const AppContainer = createAppContainer(NavBar);
     const details = this.state;
     return <AppContainer screenProps={details} />;
+  }
+
+  async registerPush() {
+    const { status } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
+    if (status !== "granted") {
+      const { status } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
+      if (status !== "granted") {
+        return;
+      }
+    }
+    const token = await Notifications.getExpoPushTokenAsync();
+    this.subscription = Notifications.addListener(this.handleNotification);
+    this.setState({ token });
+  }
+
+  handleNotification = notification => {
+    this.setState({ notification });
+  };
+
+  componentWillMount() {
+    this.registerPush();
   }
 }
 

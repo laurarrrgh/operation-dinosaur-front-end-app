@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import moment from "moment";
+import { createStackNavigator, createAppContainer } from "react-navigation";
+import AddMeds from "./AddMeds";
+import AddMedsNavigateButton from "./AddMedsNavigateButton";
+
+const addMedsButton = createStackNavigator({
+  AddMedsNavigateButton: { screen: AddMedsNavigateButton },
+  AddMeds: { screen: AddMeds }
+});
+
+const MoreMeds = createAppContainer(addMedsButton);
 
 export default class MedScreen extends Component {
   constructor(props) {
@@ -24,6 +34,7 @@ export default class MedScreen extends Component {
             <Text> Taken: {med.taken ? "true" : "false"}</Text>
           </View>
         ))}
+        <MoreMeds style={{ flex: 1 }} />
       </View>
     );
   }
