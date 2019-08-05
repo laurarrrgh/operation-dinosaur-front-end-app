@@ -41,10 +41,10 @@ class App extends Component {
   render() {
     const NavBar = createBottomTabNavigator({
       Home: { screen: HomeScreen },
-      DiaryScreen: { screen: DiaryScreen },
-      MedScreen: { screen: MedScreen },
-      EventsScreen: { screen: EventsScreen },
-      OverviewScreen: { screen: OverviewScreen }
+      Diary: { screen: DiaryScreen },
+      Medication: { screen: MedScreen },
+      Events: { screen: EventsScreen },
+      Overview: { screen: OverviewScreen }
     });
     const AppContainer = createAppContainer(NavBar);
     const details = this.state;
