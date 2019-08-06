@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import React from "react";
+import { Text, View, StyleSheet } from "react-native";
 
 const OverviewScreen = () => (
   <View style={styles.overview}>
@@ -10,9 +10,9 @@ const OverviewScreen = () => (
 const styles = StyleSheet.create({
   overview: {
     flex: 1,
-    textAlign: 'center',
-    backgroundColor: '#fff',
-    justifyContent: 'center'
+    textAlign: "center",
+    backgroundColor: "#fff",
+    justifyContent: "center"
   }
 });
 
