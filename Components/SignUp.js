@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, TextInput, Alert } from "react-native";
+import { Text, View, TextInput } from "react-native";
 import { Button } from "native-base";
 import api from "../Utils/apiUtils";
+import styles from "./Styling/styling";
 
 class SignUp extends Component {
   state = {
     user_id: null,
-    firstName: "please enter your first name here",
-    surname: "please enter your surname here"
+    firstName: "    Enter your first name here",
+    surname: "    Enter your surname here"
   };
 
   onPressButton = () => {
@@ -15,23 +16,47 @@ class SignUp extends Component {
     api.signUp(firstName, surname).then(({ user }) => {
       this.setState({
         user_id: user.id,
-        firstName: "please enter your first name here",
-        surname: "please enter your surname here"
+        firstName: "    Enter your first name here",
+        surname: "    Enter your surname here"
       });
     });
   };
   render() {
     return (
-      <View>
+      <View style={styles.signupMain}>
+        <Text
+          style={{
+            fontSize: 35,
+            fontWeight: "bold",
+            marginBottom: 20,
+            textAlign: "center"
+          }}
+        >
+          Sign Up
+        </Text>
         <TextInput
-          style={{ height: 30, borderColor: "gray", borderWidth: 1 }}
+          style={{
+            marginTop: 20,
+            height: 40,
+            borderColor: "gray",
+            borderWidth: 1,
+            marginRight: 20,
+            marginLeft: 20
+          }}
           onChangeText={firstName => this.setState({ firstName })}
           value={this.state.firstName}
           editable={true}
           onFocus={() => this.setState({ firstName: "" })}
         />
         <TextInput
-          style={{ height: 30, borderColor: "gray", borderWidth: 1 }}
+          style={{
+            marginTop: 20,
+            height: 40,
+            borderColor: "gray",
+            borderWidth: 1,
+            marginRight: 20,
+            marginLeft: 20
+          }}
           onChangeText={surname => this.setState({ surname })}
           value={this.state.surname}
           editable={true}
@@ -40,7 +65,11 @@ class SignUp extends Component {
         <Button
           style={{
             justifyContent: "center",
-            textAlign: "center"
+            textAlign: "center",
+            marginLeft: 90,
+            marginRight: 90,
+            marginTop: 10,
+            fontWeight: "bold"
           }}
           title="Submit"
           onPress={this.onPressButton}
@@ -54,14 +83,5 @@ class SignUp extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    textAlign: "center"
-  }
-});
 
 export default SignUp;
