@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, flex } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import Handshake from "./Handshake";
 import SignUp from "./SignUp";
@@ -8,11 +8,26 @@ import Login from "./Login";
 class HomeContainer extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <View
+        style={{
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
         {/* <Text>{`Welcome to ${
           this.props.screenProps.user.first_name
         }'s homepage`}</Text> */}
-        <Text>Hello, welcome to MEDIREP!</Text>
+        <Text
+          style={{
+            paddingBottom: 50,
+            fontWeight: "bold",
+            fontSize: 25,
+            alignItems: "flex-start"
+          }}
+        >
+          Hello, Welcome to MEDIREP!
+        </Text>
 
         <Button
           title="Login"
