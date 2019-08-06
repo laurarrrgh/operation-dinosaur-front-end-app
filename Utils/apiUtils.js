@@ -49,7 +49,7 @@ const patchMedication = async med_id => {
   return medication;
 };
 
-const login = async (firstName, surname) => {
+const signUp = async (firstName, surname) => {
   const newUser = { first_name: firstName, surname: surname };
   const { data } = await axios.post(`${BASE_URL}/users`, {
     ...newUser
@@ -65,5 +65,5 @@ module.exports = {
   get4DigitNumber,
   postNewMedication,
   patchMedication,
-  login
+  signUp
 };

@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Button } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import Handshake from "./Handshake";
-import Login from "./Login";
+import SignUp from "./SignUp";
 
 class HomeContainer extends React.Component {
   render() {
@@ -13,8 +13,8 @@ class HomeContainer extends React.Component {
         }'s homepage`}</Text>
 
         <Button
-          title="Login"
-          onPress={() => this.props.navigation.push("Login")}
+          title="Sign Up"
+          onPress={() => this.props.navigation.push("SignUp")}
         />
 
         <Button
@@ -29,7 +29,7 @@ class HomeContainer extends React.Component {
 const AppNavigator = createStackNavigator(
   {
     Home: HomeContainer,
-    Login: Login,
+    SignUp: SignUp,
     Handshake: Handshake
   },
   {

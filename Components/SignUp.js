@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, TextInput, Alert } from "react-native";
 import { Button } from "native-base";
 import api from "../Utils/apiUtils";
 
-class Login extends Component {
+class SignUp extends Component {
   state = {
     user_id: 0,
     firstName: "please enter your first name here",
@@ -12,7 +12,7 @@ class Login extends Component {
 
   onPressButton = () => {
     const { firstName, surname } = this.state;
-    api.login(firstName, surname).then(({ user }) => {
+    api.signUp(firstName, surname).then(({ user }) => {
       this.setState({
         user_id: user.id,
         firstName: "please enter your first name here",
@@ -47,7 +47,7 @@ class Login extends Component {
         >
           <Text>Submit</Text>
         </Button>
-        <Text>Currently logged in as user: {this.state.user_id}</Text>
+        <Text>Signed up as user number: {this.state.user_id}</Text>
       </View>
     );
   }
@@ -62,4 +62,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Login;
+export default SignUp;
