@@ -30,7 +30,7 @@ const getQuiz = async user_id => {
 const get4DigitNumber = async user_id => {
   const {
     data: { code }
-  } = await axios.get(`${BASE_URL}/codes/${user_id}`);
+  } = await axios.get(`${BASE_URL}/codes/requestnew/${user_id}`);
   return code.code;
 };
 
