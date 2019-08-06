@@ -42,11 +42,28 @@ const postNewMedication = async (user_id, type, due) => {
   return data;
 };
 
+const patchMedication = async med_id => {
+  const { medication } = await axios.patch(`${BASE_URL}/meds/${med_id}`, {
+    status: 5
+  });
+  return medication;
+};
+
+const signUp = async (firstName, surname) => {
+  const newUser = { first_name: firstName, surname: surname };
+  const { data } = await axios.post(`${BASE_URL}/users`, {
+    ...newUser
+  });
+  return data;
+};
+
 module.exports = {
   getMeds,
   getUser,
   getEvents,
   getQuiz,
   get4DigitNumber,
-  postNewMedication
+  postNewMedication,
+  patchMedication,
+  signUp
 };

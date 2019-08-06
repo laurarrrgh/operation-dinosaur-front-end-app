@@ -4,7 +4,7 @@ import HomeScreen from "./Components/HomeScreen";
 import { createAppContainer } from "react-navigation";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 import DiaryScreen from "./Components/Diary";
-import MedScreen from "./Components/MedScreen";
+import MedicationNavigator from "./Components/MedScreen";
 import EventsScreen from "./Components/Events";
 import OverviewScreen from "./Components/Overview";
 import api from "./Utils/apiUtils";
@@ -78,7 +78,7 @@ const NavBar = createMaterialBottomTabNavigator(
       // }
     },
     Diary: { screen: DiaryScreen },
-    Medication: { screen: MedScreen },
+    Medication: { screen: MedicationNavigator },
     Events: { screen: EventsScreen },
     Overview: { screen: OverviewScreen }
   },
