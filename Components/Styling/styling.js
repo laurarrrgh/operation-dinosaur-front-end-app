@@ -38,6 +38,26 @@ export default (styles = StyleSheet.create({
     justifyContent: "center",
     textAlign: "center"
   },
+  // MedsScreen
+  medsMain: {
+    flex: 1,
+    padding: 30,
+    backgroundColor: "#fff",
+    justifyContent: "center"
+  },
+  medsTitle: {
+    fontSize: 38,
+    fontWeight: "bold",
+    paddingBottom: 20,
+    textAlign: "center"
+  },
+  medSingle: { paddingTop: 20 },
+  medText: {
+    backgroundColor: "#fff",
+    fontSize: 14,
+    paddingBottom: 1,
+    textTransform: "capitalize"
+  },
   // MedsScreen button
   medsButtonContainer: {
     flex: 1,
@@ -92,14 +112,15 @@ export default (styles = StyleSheet.create({
     paddingBottom: 20
   },
   eventsText: {
-    padding: 5,
     paddingLeft: 20,
     backgroundColor: "#fff",
     fontSize: 14,
     paddingBottom: 1
   },
-  //login
+  // login
   loginMain: { paddingTop: 50, paddingLeft: 20 },
   // sign up
-  signupMain: { paddingTop: 50, paddingLeft: 20 }
+  signupMain: { paddingTop: 50, paddingLeft: 20 },
+  // addMeds Main
+  addMedsMain: { paddingTop: 50, paddingLeft: 20 }
 }));
