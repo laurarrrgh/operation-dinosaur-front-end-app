@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View } from "react-native";
 import api from "../Utils/apiUtils";
 
 class Handshake extends Component {
@@ -17,23 +17,26 @@ class Handshake extends Component {
 
   render() {
     return (
-      <View>
-        <Text>PLEASE OPEN THE ALEXA APP USING 'OPEN DIARY APP'</Text>
-        <Text>PLEASE ASK ALEXA TO 'PAIR A DEVICE'</Text>
-        <Text>PLEASE READ OUT THE BELOW 4-DIGIT CODE:</Text>
-        <Text>{this.state.code}</Text>
-        <Text>WAIT FOR ALEXA TO CONFIRM THE DEVICES ARE PAIRED</Text>
-        <Text>CONGRATULATIONS! YOU HAVE PAIRED THE FUCK OUT OF ALEXA!</Text>
+      <View
+        style={{
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        <Text> Instructions For Pairing Alexa:</Text>
+        <Text> 1. Say "Open Diary App"</Text>
+        <Text> 2. Say "Pair a device"</Text>
+        <Text> 3. Read out the below 4-digit code:</Text>
+        <Text> {this.state.code}</Text>
+        <Text style={{ textAlign: "center" }}>
+          4. If Alexa says "pairing successful", you have successfully paired
+          the device and can return to the home screen. Otherwise, please repeat
+          steps 1-3.
+        </Text>
       </View>
     );
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    textAlign: "center"
-  }
-});
+
 export default Handshake;

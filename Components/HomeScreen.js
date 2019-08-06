@@ -1,43 +1,55 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { View, Text, Button } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import Handshake from "./Handshake";
-import HandshakeNavigateButton from "./HandshakeNavigateButton";
-import Header from "./Header";
+import SignUp from "./SignUp";
+import Login from "./Login";
 
-const handshakeButton = createStackNavigator({
-  HandshakeNavigateButton: { screen: HandshakeNavigateButton },
-  Handshake: { screen: Handshake }
-});
+class HomeContainer extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        {/* <Text>{`Welcome to ${
+          this.props.screenProps.user.first_name
+        }'s homepage`}</Text> */}
+        <Text>Hello, welcome to MEDIREP!</Text>
 
-const HandShake = createAppContainer(handshakeButton);
+        <Button
+          title="Login"
+          onPress={() => this.props.navigation.push("Login")}
+        />
 
-function HomeScreen(props) {
-  return (
-    <View style={styles.container}>
-      <Header />
-      <Text style={styles.welcomeMessage}>{`Welcome to ${
-        props.screenProps.user.first_name
-      }'s homepage`}</Text>
-      <HandShake style={{ flex: 1 }} />
-    </View>
-  );
+        <Button
+          title="Sign Up"
+          onPress={() => this.props.navigation.push("SignUp")}
+        />
+
+        <Button
+          title="Pair Alexa"
+          onPress={() => this.props.navigation.push("Handshake")}
+        />
+      </View>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "flex-end",
-    textAlign: "center",
-    color: "chartreuse"
+const AppNavigator = createStackNavigator(
+  {
+    Home: HomeContainer,
+    Login: Login,
+    SignUp: SignUp,
+    Handshake: Handshake
   },
-  welcomeMessage: {
-    flex: 1,
-    justifyContent: "center",
-    textAlign: "center",
-    textAlignVertical: "center"
+  {
+    initialRouteName: "Home"
   }
-});
+);
 
-export default HomeScreen;
+const AppContainer = createAppContainer(AppNavigator);
+
+export default class HomeScreen extends React.Component {
+  render() {
+    const details = this.props.screenProps;
+    return <AppContainer screenProps={details} />;
+  }
+}
