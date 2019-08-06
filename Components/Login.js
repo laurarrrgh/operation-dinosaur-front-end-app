@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, TextInput, Alert } from "react-native";
+import { Text, View, TextInput } from "react-native";
 import { Button } from "native-base";
 import api from "../Utils/apiUtils";
+import styles from "./Styling/styling";
 
 class Login extends Component {
   state = {
     firstName: null,
-    user_id: "please enter your user id number here"
+    user_id: "    Enter your user id number here"
   };
 
   onPressButton = () => {
@@ -18,9 +19,25 @@ class Login extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.loginMain}>
+        <Text
+          style={{
+            fontSize: 35,
+            fontWeight: "bold",
+            marginBottom: 20,
+            textAlign: "center"
+          }}
+        >
+          Login
+        </Text>
         <TextInput
-          style={{ height: 30, borderColor: "gray", borderWidth: 1 }}
+          style={{
+            height: 50,
+            borderColor: "gray",
+            borderWidth: 1,
+            marginLeft: 20,
+            marginRight: 20
+          }}
           onChangeText={user_id => this.setState({ user_id })}
           value={this.state.user_id}
           editable={true}
@@ -29,26 +46,23 @@ class Login extends Component {
         <Button
           style={{
             justifyContent: "center",
-            textAlign: "center"
+            textAlign: "center",
+            marginLeft: 90,
+            marginRight: 90,
+            marginTop: 10,
+            fontWeight: "bold"
           }}
           title="Submit"
           onPress={this.onPressButton}
         >
           <Text>Submit</Text>
         </Button>
-        <Text>Logged in as: {this.state.firstName}</Text>
+        <Text style={{ padding: 10, marginTop: 10 }}>
+          Logged in as: {this.state.firstName}
+        </Text>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    textAlign: "center"
-  }
-});
 
 export default Login;
