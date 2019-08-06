@@ -22,16 +22,29 @@ class AddMeds extends Component {
   };
   render() {
     return (
-      <View>
+      <View style={styles.addMedsMain}>
         <TextInput
-          style={{ height: 30, borderColor: "gray", borderWidth: 1 }}
+          style={{
+            height: 50,
+            borderColor: "gray",
+            borderWidth: 1,
+            marginLeft: 20,
+            marginRight: 20,
+            marginBottom: 10
+          }}
           onChangeText={type => this.setState({ type })}
           value={this.state.type}
           editable={true}
           onFocus={() => this.setState({ type: "" })}
         />
         <TextInput
-          style={{ height: 30, borderColor: "gray", borderWidth: 1 }}
+          style={{
+            height: 50,
+            borderColor: "gray",
+            borderWidth: 1,
+            marginLeft: 20,
+            marginRight: 20
+          }}
           onChangeText={due => this.setState({ due })}
           value={this.state.due}
           editable={true}
@@ -40,14 +53,18 @@ class AddMeds extends Component {
         <Button
           style={{
             justifyContent: "center",
-            textAlign: "center"
+            textAlign: "center",
+            marginLeft: 90,
+            marginRight: 90,
+            marginTop: 10,
+            fontWeight: "bold"
           }}
           title="Submit"
           onPress={this.onPressButton}
         >
           <Text>Submit</Text>
         </Button>
-        <Text>
+        <Text style={{ marginTop: 10 }}>
           If your pill is taken more than once per day, please enter the pill
           and due time for each instance
         </Text>
