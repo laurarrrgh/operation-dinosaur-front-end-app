@@ -23,20 +23,27 @@ class AddMeds extends Component {
     return (
       <View>
         <TextInput
-          style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+          style={{ height: 30, borderColor: "gray", borderWidth: 1 }}
           onChangeText={type => this.setState({ type })}
           value={this.state.type}
           editable={true}
           onFocus={() => this.setState({ type: "" })}
         />
         <TextInput
-          style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+          style={{ height: 30, borderColor: "gray", borderWidth: 1 }}
           onChangeText={due => this.setState({ due })}
           value={this.state.due}
           editable={true}
           onFocus={() => this.setState({ due: "" })}
         />
-        <Button title="Submit" onPress={this.onPressButton}>
+        <Button
+          style={{
+            justifyContent: "center",
+            textAlign: "center"
+          }}
+          title="Submit"
+          onPress={this.onPressButton}
+        >
           <Text>Submit</Text>
         </Button>
         <Text>

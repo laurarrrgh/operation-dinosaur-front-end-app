@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { View, Text, styleSheet } from "react-native";
 import HomeScreen from "./Components/HomeScreen";
-import { createAppContainer, createBottomTabNavigator } from "react-navigation";
+import { createAppContainer } from "react-navigation";
+import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 import DiaryScreen from "./Components/Diary";
 import MedScreen from "./Components/MedScreen";
 import EventsScreen from "./Components/Events";
@@ -38,14 +39,6 @@ class App extends Component {
   }
 
   render() {
-    const NavBar = createBottomTabNavigator({
-      Home: { screen: HomeScreen },
-      Diary: { screen: DiaryScreen },
-      Medication: { screen: MedScreen },
-      Events: { screen: EventsScreen },
-      Overview: { screen: OverviewScreen }
-    });
-    const AppContainer = createAppContainer(NavBar);
     const details = this.state;
     return <AppContainer screenProps={details} />;
   }
@@ -71,5 +64,21 @@ class App extends Component {
     this.registerPush();
   }
 }
+
+const NavBar = createMaterialBottomTabNavigator(
+  {
+    Home: { screen: HomeScreen },
+    Diary: { screen: DiaryScreen },
+    Medication: { screen: MedScreen },
+    Events: { screen: EventsScreen },
+    Overview: { screen: OverviewScreen }
+  },
+  {
+    activeColor: "white",
+    color: "black",
+    barStyle: { backgroundColor: "orange" }
+  }
+);
+const AppContainer = createAppContainer(NavBar);
 
 export default App;
