@@ -3,6 +3,7 @@ import React, { StyleSheet } from "react-native";
 export default (styles = StyleSheet.create({
   // Header
   header: {
+    backgroundColor: "blue"
     // containerStyle={{
     // backgroundColor: '#3D6DCC',
     //   justifyContent: 'space-around',}}
@@ -56,7 +57,8 @@ export default (styles = StyleSheet.create({
     padding: 30,
     paddingTop: 100,
     backgroundColor: "#fff",
-    justifyContent: "center"
+    justifyContent: "center",
+    alignItems: "center"
   },
   diarySingle: {
     paddingBottom: 20
@@ -95,5 +97,9 @@ export default (styles = StyleSheet.create({
     backgroundColor: "#fff",
     fontSize: 14,
     paddingBottom: 1
-  }
+  },
+  //login
+  loginMain: { paddingTop: 50, paddingLeft: 20 },
+  // sign up
+  signupMain: { paddingTop: 50, paddingLeft: 20 }
 }));
