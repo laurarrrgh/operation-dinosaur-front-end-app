@@ -1,10 +1,16 @@
-import React from 'react';
-import { View, Header } from 'react-native';
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 
-const TopBar = () => (
-  <View>
-    <Header>TopBar</Header>
-  </View>
-);
+const Header = () => {
+  return (
+    <View>
+      <Text>MEDIREP</Text>
+    </View>
+  );
+};
 
-export default TopBar;
+const styles = StyleSheet.create({
+  header: {}
+});
+
+export default Header;
