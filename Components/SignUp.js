@@ -5,7 +5,7 @@ import api from "../Utils/apiUtils";
 
 class SignUp extends Component {
   state = {
-    user_id: 0,
+    user_id: null,
     firstName: "please enter your first name here",
     surname: "please enter your surname here"
   };
@@ -47,7 +47,9 @@ class SignUp extends Component {
         >
           <Text>Submit</Text>
         </Button>
-        <Text>Signed up as user number: {this.state.user_id}</Text>
+        {this.state.user_id ? (
+          <Text>Sign up successful! Your user id is: {this.state.user_id}</Text>
+        ) : null}
       </View>
     );
   }
