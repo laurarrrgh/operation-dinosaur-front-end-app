@@ -3,6 +3,7 @@ import { View, Text, Button, ScrollView } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import AddMeds from "./AddMeds";
 import moment from "moment";
+import styles from "./Styling/styling";
 
 class MedsContainer extends React.Component {
   constructor(props) {
@@ -19,18 +20,32 @@ class MedsContainer extends React.Component {
   render() {
     const { meds } = this.state;
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Medication Screen </Text>
+      <View style={styles.medsMain}>
+        <Text style={styles.medsTitle}>Medication Screen </Text>
         <Button
+          style={{
+            justifyContent: "center",
+            textAlign: "center",
+            marginLeft: 90,
+            marginRight: 90,
+            marginTop: 10,
+            fontWeight: "bold"
+          }}
           title="Go to AddMeds"
           onPress={() => this.props.navigation.push("AddMeds")}
         />
         <ScrollView>
           {meds.map(med => (
-            <View key={med.id}>
-              <Text> Medication: {med.type} </Text>
-              <Text> Due: {moment(med.due).format("HH:MM")}</Text>
-              <Text> Taken: {med.taken ? "true" : "false"}</Text>
+            <View key={med.id} style={styles.medSingle}>
+              <Text style={styles.medText}> Medication: {med.type} </Text>
+              <Text style={styles.medText}>
+                {" "}
+                Due: {moment(med.due).format("HH:MM")}
+              </Text>
+              <Text style={styles.medText}>
+                {" "}
+                Taken: {med.taken ? "true" : "false"}
+              </Text>
             </View>
           ))}
         </ScrollView>
