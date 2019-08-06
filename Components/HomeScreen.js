@@ -3,14 +3,21 @@ import { View, Text, Button } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import Handshake from "./Handshake";
 import SignUp from "./SignUp";
+import Login from "./Login";
 
 class HomeContainer extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>{`Welcome to ${
+        {/* <Text>{`Welcome to ${
           this.props.screenProps.user.first_name
-        }'s homepage`}</Text>
+        }'s homepage`}</Text> */}
+        <Text>Hello, welcome to MEDIREP!</Text>
+
+        <Button
+          title="Login"
+          onPress={() => this.props.navigation.push("Login")}
+        />
 
         <Button
           title="Sign Up"
@@ -29,6 +36,7 @@ class HomeContainer extends React.Component {
 const AppNavigator = createStackNavigator(
   {
     Home: HomeContainer,
+    Login: Login,
     SignUp: SignUp,
     Handshake: Handshake
   },
