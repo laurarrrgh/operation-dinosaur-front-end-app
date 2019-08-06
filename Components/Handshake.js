@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import api from "../Utils/apiUtils";
+import styles from "./Styling/styling";
 
 class Handshake extends Component {
   state = {
@@ -17,23 +18,16 @@ class Handshake extends Component {
 
   render() {
     return (
-      <View>
-        <Text>PLEASE OPEN THE ALEXA APP USING 'OPEN DIARY APP'</Text>
-        <Text>PLEASE ASK ALEXA TO 'PAIR A DEVICE'</Text>
-        <Text>PLEASE READ OUT THE BELOW 4-DIGIT CODE:</Text>
+      <View style={styles.handshakeContainer}>
+        <Text>Open the Alexa App using 'Open Diary App'</Text>
+        <Text>Ask Alexa to 'Pair a Device'</Text>
+        <Text>Read out the following 4-digit code:</Text>
         <Text>{this.state.code}</Text>
-        <Text>WAIT FOR ALEXA TO CONFIRM THE DEVICES ARE PAIRED</Text>
-        <Text>CONGRATULATIONS! YOU HAVE PAIRED THE FUCK OUT OF ALEXA!</Text>
+        <Text>Wait for Alexa to confirm the devices are paired</Text>
+        <Text>You have paired MediRep to your Alexa!</Text>
       </View>
     );
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    textAlign: "center"
-  }
-});
+
 export default Handshake;

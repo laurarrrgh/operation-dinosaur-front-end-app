@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, styleSheet } from "react-native";
+import { View, Icon, Text, styleSheet } from "react-native";
 import HomeScreen from "./Components/HomeScreen";
 import { createAppContainer } from "react-navigation";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
@@ -67,15 +67,26 @@ class App extends Component {
 
 const NavBar = createMaterialBottomTabNavigator(
   {
-    Home: { screen: HomeScreen },
+    Home: {
+      screen: HomeScreen
+      // navigationOptions: {
+      //   tabBarIcon: ({ tintColor }) => (
+      //     <View>
+      //       <Icon style={[{ color: tintColor }]} size={25} name={"ios-home"} />
+      //     </View>
+      //   )
+      // }
+    },
     Diary: { screen: DiaryScreen },
     Medication: { screen: MedScreen },
     Events: { screen: EventsScreen },
     Overview: { screen: OverviewScreen }
   },
   {
-    activeColor: "white",
-    color: "black",
+    shifting: false,
+    initialRouteName: "Home",
+    activeColor: "black",
+    inactiveColor: "white",
     barStyle: { backgroundColor: "orange" }
   }
 );

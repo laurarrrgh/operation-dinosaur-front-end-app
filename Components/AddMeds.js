@@ -1,21 +1,22 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, TextInput, Alert } from "react-native";
+import { Text, View, StyleSheet, TextInput } from "react-native";
 import { Button } from "native-base";
 import api from "../Utils/apiUtils";
+// import styles from "./Styling/styling";
 
 class AddMeds extends Component {
   state = {
     user_id: 1,
-    type: "please enter pills here",
-    due: "please enter the time the pill is due here"
+    type: "Enter pills here",
+    due: "Enter the time the pill is due here"
   };
 
   onPressButton = () => {
     const { user_id, type, due } = this.state;
     api.postNewMedication(user_id, type, due).then(
       this.setState({
-        type: "please enter pills here",
-        due: "please enter the time the pill is due here"
+        type: "Enter pills here",
+        due: "Enter the time the pill is due here"
       })
     );
   };
@@ -55,13 +56,13 @@ class AddMeds extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    textAlign: "center"
-  }
-});
+// const styles = StyleSheet.create({
+//   addMedsContainer: {
+//     flex: 1,
+//     backgroundColor: "#fff",
+//     justifyContent: "center",
+//     textAlign: "center"
+//   }
+// });
 
 export default AddMeds;

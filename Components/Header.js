@@ -1,16 +1,15 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
+import styles from "./Styling/styling";
 
 const Header = () => {
   return (
-    <View>
-      <Text>MEDIREP</Text>
-    </View>
+    <Text
+      leftComponent={{ text: "logo space" }}
+      centerComponent={{ text: "MEDIREP" }}
+      //rightComponent={{ icon: "home", style: { color: "#fff" } }}
+    />
   );
 };
-
-const styles = StyleSheet.create({
-  header: {}
-});
 
 export default Header;

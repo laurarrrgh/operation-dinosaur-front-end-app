@@ -1,11 +1,12 @@
 import { Button } from "native-base";
-import React, { Component } from "react";
-import { Text, StyleSheet } from "react-native";
+import React from "react";
+import { Text } from "react-native";
+import styles from "./Styling/styling";
 
 const AddMedsNavigateButton = props => {
   return (
     <Button
-      style={styles.container}
+      style={styles.medsButtonContainer}
       onPress={() => {
         props.navigation.navigate("AddMeds");
       }}
@@ -14,13 +15,5 @@ const AddMedsNavigateButton = props => {
     </Button>
   );
 };
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    textAlign: "center"
-  }
-});
 
 export default AddMedsNavigateButton;

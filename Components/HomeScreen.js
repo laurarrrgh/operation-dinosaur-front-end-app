@@ -1,9 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import Handshake from "./Handshake";
 import HandshakeNavigateButton from "./HandshakeNavigateButton";
 import Header from "./Header";
+import styles from "./Styling/styling";
 
 const handshakeButton = createStackNavigator({
   HandshakeNavigateButton: { screen: HandshakeNavigateButton },
@@ -14,7 +15,7 @@ const HandShake = createAppContainer(handshakeButton);
 
 function HomeScreen(props) {
   return (
-    <View style={styles.container}>
+    <View style={styles.homepageContainer}>
       <Header />
       <Text style={styles.welcomeMessage}>{`Welcome to ${
         props.screenProps.user.first_name
@@ -23,21 +24,5 @@ function HomeScreen(props) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "flex-end",
-    textAlign: "center",
-    color: "chartreuse"
-  },
-  welcomeMessage: {
-    flex: 1,
-    justifyContent: "center",
-    textAlign: "center",
-    textAlignVertical: "center"
-  }
-});
 
 export default HomeScreen;
