@@ -2,14 +2,21 @@ import React from "react";
 import { View, Text, Button } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import Handshake from "./Handshake";
+import Login from "./Login";
 
-class AlexaContainer extends React.Component {
+class HomeContainer extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>{`Welcome to ${
           this.props.screenProps.user.first_name
         }'s homepage`}</Text>
+
+        <Button
+          title="Login"
+          onPress={() => this.props.navigation.push("Login")}
+        />
+
         <Button
           title="Pair Alexa"
           onPress={() => this.props.navigation.push("Handshake")}
@@ -21,11 +28,12 @@ class AlexaContainer extends React.Component {
 
 const AppNavigator = createStackNavigator(
   {
-    PairAlexa: AlexaContainer,
+    Home: HomeContainer,
+    Login: Login,
     Handshake: Handshake
   },
   {
-    initialRouteName: "PairAlexa"
+    initialRouteName: "Home"
   }
 );
 
