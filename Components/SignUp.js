@@ -22,7 +22,9 @@ class SignUp extends Component {
         this.setState({
           user_id: user.id,
           firstName: " Enter your first name here",
-          surname: "  Enter your surname here"
+          surname: "  Enter your surname here",
+          password: "    Enter your password",
+          confirmPassword: "    Confirm your password"
         });
       })
       .then(() => {

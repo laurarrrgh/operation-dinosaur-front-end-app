@@ -6,6 +6,7 @@ import moment from "moment";
 import styles from "./Styling/medScreenStyling";
 import HeaderBar from "./HeaderBar";
 
+
 class MedsContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -31,26 +32,49 @@ class MedsContainer extends React.Component {
         />
         <ScrollView>
           {meds.map(med => (
-            <View key={med.id} style={styles.medSingle}>
-              <View style={styles.medCard}>
-                <Text style={styles.medText}> Medication: {med.type} </Text>
-                <Text style={styles.medText}>
-                  {" "}
-                  Due:{" "}
-                  {moment(med.due)
-                    .subtract(1, "hour")
-                    .format("LT")}
-                </Text>
-                <Text style={styles.medText}>
-                  Taken: {med.taken ? "true" : "false"}
-                </Text>
-              </View>
+            <View key={med.id}>
+              <Text> Medication: {med.type} </Text>
+              <Text>
+                {" "}
+                Due:{" "}
+                {moment(med.due)
+                  .subtract(1, "hour")
+                  .format("LT")}
+              </Text>
+              <Text> Taken: {med.taken ? "true" : "false"}</Text>
+              <Button
+                title={
+                  med.status === 5
+                    ? "Medication Removed"
+                    : "ADD NICE ICON HERE, LAURA"
+                }
+                onPress={() => {
+                  this.deleteMeds(med.id);
+                }}
+                color={med.status === 5 ? "red" : "blue"}
+              />
             </View>
           ))}
         </ScrollView>
       </View>
     );
   }
+
+  deleteMeds = id => {
+    api.patchMedication(id).then(
+      this.setState(() => {
+        const { meds, ...rest } = this.state;
+        let medToChange = {};
+        meds.forEach(med => {
+          if (med.id === id) {
+            medToChange = med;
+          }
+        });
+        medToChange.status = 5;
+        return { meds, ...rest };
+      })
+    );
+  };
 }
 
 const AppNavigator = createStackNavigator(

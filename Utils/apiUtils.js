@@ -8,6 +8,7 @@ const getMeds = async user_id => {
 
 const getDailyMeds = async user_id => {
   const { data } = await axios.get(`${BASE_URL}/meds/app/daily/${user_id}`);
+
   return data;
 };
 
