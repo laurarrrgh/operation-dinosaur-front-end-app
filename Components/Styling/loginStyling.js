@@ -10,8 +10,10 @@ export default (styles = StyleSheet.create({
   },
   loginTextInput: {
     height: 50,
+    textAlign: "center",
     borderColor: "gray",
     borderWidth: 1,
+    marginTop: 10,
     marginLeft: 20,
     marginRight: 20
   },
@@ -23,5 +25,5 @@ export default (styles = StyleSheet.create({
     marginTop: 10,
     fontWeight: "bold"
   },
-  loginLowerText: { padding: 10, marginTop: 10 }
+  loginLowerText: { padding: 10, marginTop: 10, textAlign: "center" }
 }));

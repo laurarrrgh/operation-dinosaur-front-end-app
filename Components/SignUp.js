@@ -8,8 +8,10 @@ import HeaderBar from "./HeaderBar";
 class SignUp extends Component {
   state = {
     user_id: null,
-    firstName: "    Enter your first name here",
-    surname: "    Enter your surname here"
+    firstName: "    Enter your first name",
+    surname: "    Enter your surname",
+    password: "    Enter your password",
+    confirmPassword: "    Confirm your password"
   };
 
   onPressButton = () => {
@@ -46,6 +48,20 @@ class SignUp extends Component {
           value={this.state.surname}
           editable={true}
           onFocus={() => this.setState({ surname: "" })}
+        />
+        <TextInput
+          style={styles.signUpTextInput}
+          onChangeText={password => this.setState({ password })}
+          value={this.state.password.toString()}
+          editable={true}
+          onFocus={() => this.setState({ password: "" })}
+        />
+        <TextInput
+          style={styles.signUpTextInput}
+          onChangeText={confirmPassword => this.setState({ confirmPassword })}
+          value={this.state.confirmPassword.toString()}
+          editable={true}
+          onFocus={() => this.setState({ confirmPassword: "" })}
         />
         <Button
           style={styles.signUpButton}
