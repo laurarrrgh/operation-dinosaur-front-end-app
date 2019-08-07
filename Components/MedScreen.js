@@ -40,10 +40,15 @@ class MedsContainer extends React.Component {
               </Text>
               <Text> Taken: {med.taken ? "true" : "false"}</Text>
               <Button
-                title="ADD NICE ICON HERE, LAURA"
+                title={
+                  med.status === 5
+                    ? "Medication Removed"
+                    : "ADD NICE ICON HERE, LAURA"
+                }
                 onPress={() => {
                   this.deleteMeds(med.id);
                 }}
+                color={med.status === 5 ? "red" : "blue"}
               />
             </View>
           ))}
@@ -55,14 +60,15 @@ class MedsContainer extends React.Component {
   deleteMeds = id => {
     api.patchMedication(id).then(
       this.setState(() => {
-        const { meds } = this.state;
+        const { meds, ...rest } = this.state;
         let medToChange = {};
         meds.forEach(med => {
           if (med.id === id) {
             medToChange = med;
           }
         });
-        console.log(medToChange);
+        medToChange.status = 5;
+        return { meds, ...rest };
       })
     );
   };
