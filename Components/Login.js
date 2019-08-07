@@ -8,8 +8,8 @@ import HeaderBar from "./HeaderBar";
 class Login extends Component {
   state = {
     firstName: null,
-    user_id: "    Enter your user id number",
-    password: "    Enter your password"
+    user_id: "Enter your user id number",
+    password: "Enter your password"
   };
 
   onPressButton = () => {
