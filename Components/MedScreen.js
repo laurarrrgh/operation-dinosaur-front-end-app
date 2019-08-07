@@ -13,11 +13,12 @@ class MedsContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.setState(this.props.screenProps.meds);
+    this.setState(this.props.screenProps.details.meds);
   }
 
   render() {
     const { meds } = this.state;
+    console.log(meds);
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>Medication Screen </Text>

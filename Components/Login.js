@@ -16,7 +16,7 @@ class Login extends Component {
       .then(user => {
         this.setState({ user_id: user.id, firstName: user.first_name });
       })
-      .then(e => {
+      .then(user => {
         this.props.screenProps.setUser(this.state.user_id);
       });
   };
@@ -27,7 +27,7 @@ class Login extends Component {
         <TextInput
           style={{ height: 30, borderColor: "gray", borderWidth: 1 }}
           onChangeText={user_id => this.setState({ user_id })}
-          value={this.state.user_id}
+          value={this.state.user_id.toString()}
           editable={true}
           onFocus={() => this.setState({ user_id: "" })}
         />

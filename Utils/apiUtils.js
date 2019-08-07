@@ -1,5 +1,5 @@
 const axios = require("axios");
-const BASE_URL = "https://medirep-api.herokuapp.com/api/";
+const BASE_URL = "https://medirep-api.herokuapp.com/api";
 
 const getMeds = async user_id => {
   const { data } = await axios.get(`${BASE_URL}/meds/app/${user_id}`);
@@ -23,7 +23,7 @@ const getEvents = async user_id => {
 const getQuiz = async user_id => {
   const {
     data: { quizzes }
-  } = await axios.get(`${BASE_URL}/quiz/${user_id}`);
+  } = await axios.get(`${BASE_URL}/quiz/app/${user_id}`);
   return quizzes;
 };
 
@@ -36,14 +36,14 @@ const get4DigitNumber = async user_id => {
 
 const postNewMedication = async (user_id, type, due) => {
   const newMeds = { type: type, due: due };
-  const { data } = await axios.post(`${BASE_URL}/meds/${user_id}`, {
+  const { data } = await axios.post(`${BASE_URL}/meds/app/${user_id}`, {
     ...newMeds
   });
   return data;
 };
 
 const patchMedication = async med_id => {
-  const { medication } = await axios.patch(`${BASE_URL}/meds/${med_id}`, {
+  const { medication } = await axios.patch(`${BASE_URL}/meds/app/${med_id}`, {
     status: 5
   });
   return medication;

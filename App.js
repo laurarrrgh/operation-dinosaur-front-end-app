@@ -24,6 +24,7 @@ class App extends Component {
 
   componentDidMount() {
     const { user_id } = this.state;
+
     api.getUser(user_id).then(user => {
       this.setState({ user });
     });
@@ -43,9 +44,9 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state.user_id);
     const details = this.state;
     const setUser = this.setUser;
-    console.log(this.state.user_id);
     return <AppContainer screenProps={{ details, setUser }} />;
   }
 
