@@ -9,11 +9,7 @@ class HomeContainer extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        {/* <Text>{`Welcome to ${
-          this.props.screenProps.user.first_name
-        }'s homepage`}</Text> */}
         <Text>Hello, welcome to MEDIREP!</Text>
-
         <Button
           title="Login"
           onPress={() => this.props.navigation.push("Login")}

@@ -38,9 +38,15 @@ class App extends Component {
     });
   }
 
+  setUser = user_id => {
+    this.setState({ user_id: user_id });
+  };
+
   render() {
     const details = this.state;
-    return <AppContainer screenProps={details} />;
+    const setUser = this.setUser;
+    console.log(this.state.user_id);
+    return <AppContainer screenProps={{ details, setUser }} />;
   }
 
   async registerPush() {
