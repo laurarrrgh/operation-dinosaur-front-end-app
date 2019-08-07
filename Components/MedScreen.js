@@ -3,6 +3,7 @@ import { View, Text, Button, ScrollView } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import AddMeds from "./AddMeds";
 import moment from "moment";
+import api from "../Utils/apiUtils";
 
 class MedsContainer extends React.Component {
   constructor(props) {
@@ -37,12 +38,39 @@ class MedsContainer extends React.Component {
                   .format("LT")}
               </Text>
               <Text> Taken: {med.taken ? "true" : "false"}</Text>
+              <Button
+                title={
+                  med.status === 5
+                    ? "Medication Removed"
+                    : "ADD NICE ICON HERE, LAURA"
+                }
+                onPress={() => {
+                  this.deleteMeds(med.id);
+                }}
+                color={med.status === 5 ? "red" : "blue"}
+              />
             </View>
           ))}
         </ScrollView>
       </View>
     );
   }
+
+  deleteMeds = id => {
+    api.patchMedication(id).then(
+      this.setState(() => {
+        const { meds, ...rest } = this.state;
+        let medToChange = {};
+        meds.forEach(med => {
+          if (med.id === id) {
+            medToChange = med;
+          }
+        });
+        medToChange.status = 5;
+        return { meds, ...rest };
+      })
+    );
+  };
 }
 
 const AppNavigator = createStackNavigator(
