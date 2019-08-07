@@ -44,7 +44,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.user_id);
     const details = this.state;
     const setUser = this.setUser;
     return <AppContainer screenProps={{ details, setUser }} />;

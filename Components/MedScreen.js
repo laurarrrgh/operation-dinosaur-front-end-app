@@ -18,7 +18,6 @@ class MedsContainer extends React.Component {
 
   render() {
     const { meds } = this.state;
-    console.log(meds);
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>Medication Screen </Text>
