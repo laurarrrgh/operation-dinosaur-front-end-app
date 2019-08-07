@@ -15,7 +15,9 @@ export default (styles = StyleSheet.create({
     borderWidth: 1,
     marginTop: 10,
     marginLeft: 20,
-    marginRight: 20
+    marginRight: 20,
+    borderRadius: 15,
+    borderWidth: 1.5
   },
   loginButton: {
     justifyContent: "center",
