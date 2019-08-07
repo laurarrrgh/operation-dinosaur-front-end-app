@@ -6,7 +6,6 @@ const postNewMedication = async (user_id, type, due) => {
   const { data } = await axios.post(`${BASE_URL}/meds/${user_id}`, {
     ...newMeds
   });
-  console.log(data);
   return data;
 };
 

@@ -38,8 +38,13 @@ class App extends Component {
     });
   }
 
+  setUser = user_id => {
+    this.setState({ user_id: user_id });
+  };
+
   render() {
     const details = this.state;
+    // const setUser = this.setUser;
     return <AppContainer screenProps={details} />;
   }
 

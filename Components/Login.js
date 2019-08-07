@@ -11,9 +11,14 @@ class Login extends Component {
 
   onPressButton = () => {
     const { user_id } = this.state;
-    api.getUser(user_id).then(user => {
-      this.setState({ user_id: user.id, firstName: user.first_name });
-    });
+    api
+      .getUser(user_id)
+      .then(user => {
+        this.setState({ user_id: user.id, firstName: user.first_name });
+      })
+      .then(e => {
+        this.props.screenProps.setUser(this.state.user_id);
+      });
   };
 
   render() {
