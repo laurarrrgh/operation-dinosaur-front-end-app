@@ -10,7 +10,8 @@ export default (styles = StyleSheet.create({
     marginRight: 20,
     marginTop: 20,
     borderRadius: 15,
-    borderWidth: 1.5
+    borderWidth: 1.5,
+    textAlign: "center"
   },
   addMedsButton: {
     justifyContent: "center",
