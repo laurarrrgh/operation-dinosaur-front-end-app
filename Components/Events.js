@@ -9,10 +9,12 @@ const EventsScreen = props => (
     <ScrollView>
       {props.screenProps.events.map(({ id, time, description, user_id }) => (
         <View key={id} style={styles.eventsSingle}>
-          <Text style={styles.eventsText}>{`Time: ${moment(time).format(
-            "DD-MM-YYYY HH:MM"
-          )}`}</Text>
-          <Text style={styles.eventsText}>{`Event: ${description}`}</Text>
+          <View style={styles.eventCard}>
+            <Text style={styles.eventsText}>{`Time: ${moment(time).format(
+              "DD-MM-YYYY HH:MM"
+            )}`}</Text>
+            <Text style={styles.eventsText}>{`Event: ${description}`}</Text>
+          </View>
         </View>
       ))}
     </ScrollView>

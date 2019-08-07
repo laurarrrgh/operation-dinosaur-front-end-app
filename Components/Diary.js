@@ -10,13 +10,15 @@ const DiaryScreen = props => (
       {props.screenProps.quiz.map(
         ({ completed_at, mood, stiffness, slowness, tremor, id }) => (
           <View key={id} style={styles.diarySingle}>
-            <Text style={styles.diaryText}>
-              Taken: {moment(completed_at).format("DD-MM-YYYY HH:MM")}
-            </Text>
-            <Text style={styles.diaryText}>Mood score: {mood}</Text>
-            <Text style={styles.diaryText}>Stiffness score: {stiffness}</Text>
-            <Text style={styles.diaryText}>Slowness score: {slowness}</Text>
-            <Text style={styles.diaryText}>Tremor score: {tremor}</Text>
+            <View style={styles.diaryCard}>
+              <Text style={styles.diaryText}>
+                Taken: {moment(completed_at).format("DD-MM-YYYY HH:MM")}
+              </Text>
+              <Text style={styles.diaryText}>Mood score: {mood}</Text>
+              <Text style={styles.diaryText}>Stiffness score: {stiffness}</Text>
+              <Text style={styles.diaryText}>Slowness score: {slowness}</Text>
+              <Text style={styles.diaryText}>Tremor score: {tremor}</Text>
+            </View>
           </View>
         )
       )}

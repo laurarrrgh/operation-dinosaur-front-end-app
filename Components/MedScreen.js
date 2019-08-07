@@ -6,6 +6,8 @@ import moment from "moment";
 import styles from "./Styling/medScreenStyling";
 
 class MedsContainer extends React.Component {
+  static navigationOptions = { header: null };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -30,14 +32,16 @@ class MedsContainer extends React.Component {
         <ScrollView>
           {meds.map(med => (
             <View key={med.id} style={styles.medSingle}>
-              <Text style={styles.medText}> Medication: {med.type} </Text>
-              <Text style={styles.medText}>
-                {" "}
-                Due: {moment(med.due).format("HH:MM")}
-              </Text>
-              <Text style={styles.medText}>
-                Taken: {med.taken ? "true" : "false"}
-              </Text>
+              <View style={styles.medCard}>
+                <Text style={styles.medText}> Medication: {med.type} </Text>
+                <Text style={styles.medText}>
+                  {" "}
+                  Due: {moment(med.due).format("HH:MM")}
+                </Text>
+                <Text style={styles.medText}>
+                  Taken: {med.taken ? "true" : "false"}
+                </Text>
+              </View>
             </View>
           ))}
         </ScrollView>
@@ -53,6 +57,12 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: "Medications"
+  },
+  {
+    headerMode: "none",
+    navigationOptions: {
+      headerVisible: false
+    }
   }
 );
 

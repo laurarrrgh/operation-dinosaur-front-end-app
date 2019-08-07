@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, Header } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import Handshake from "./Handshake";
 import SignUp from "./SignUp";
@@ -8,6 +8,8 @@ import Login from "./Login";
 import styles from "./Styling/homeScreenStyling";
 
 class HomeContainer extends React.Component {
+  static navigationOptions = { header: null };
+
   render() {
     return (
       <View style={styles.homeScreen}>
@@ -44,6 +46,12 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: "Home"
+  },
+  {
+    headerMode: "none",
+    navigationOptions: {
+      headerVisible: false
+    }
   }
 );
 

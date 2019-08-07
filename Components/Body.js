@@ -3,7 +3,7 @@ import api from '../Utils/apiUtils'
 
 class Body extends Component {
   componentDidMount(){
-    const meds = api.getMeds(1),
+    const meds = api.getDailyMeds(1),
     this.setState({meds})
   }
 
