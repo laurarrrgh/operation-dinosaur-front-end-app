@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, ScrollView } from "react-native";
 import moment from "moment";
-import styles from "./Styling/styling";
+import styles from "./Styling/eventsStyling";
 
 const EventsScreen = props => (
   <View style={styles.eventsMain}>

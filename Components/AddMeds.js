@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Text, View, StyleSheet, TextInput } from "react-native";
 import { Button } from "native-base";
 import api from "../Utils/apiUtils";
-// import styles from "./Styling/styling";
+import styles from "./Styling/addMedsStyling";
 
 class AddMeds extends Component {
   state = {
@@ -24,41 +24,21 @@ class AddMeds extends Component {
     return (
       <View style={styles.addMedsMain}>
         <TextInput
-          style={{
-            height: 50,
-            borderColor: "gray",
-            borderWidth: 1,
-            marginLeft: 20,
-            marginRight: 20,
-            marginBottom: 10
-          }}
+          style={styles.addMedsTextInput}
           onChangeText={type => this.setState({ type })}
           value={this.state.type}
           editable={true}
           onFocus={() => this.setState({ type: "" })}
         />
         <TextInput
-          style={{
-            height: 50,
-            borderColor: "gray",
-            borderWidth: 1,
-            marginLeft: 20,
-            marginRight: 20
-          }}
+          style={styles.addMedsTextInput}
           onChangeText={due => this.setState({ due })}
           value={this.state.due}
           editable={true}
           onFocus={() => this.setState({ due: "" })}
         />
         <Button
-          style={{
-            justifyContent: "center",
-            textAlign: "center",
-            marginLeft: 90,
-            marginRight: 90,
-            marginTop: 10,
-            fontWeight: "bold"
-          }}
+          style={styles.addMedsButton}
           title="Submit"
           onPress={this.onPressButton}
         >

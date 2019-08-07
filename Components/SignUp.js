@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Text, View, TextInput } from "react-native";
 import { Button } from "native-base";
 import api from "../Utils/apiUtils";
-import styles from "./Styling/styling";
+import styles from "./Styling/signUpStyling";
 
 class SignUp extends Component {
   state = {
@@ -24,53 +24,23 @@ class SignUp extends Component {
   render() {
     return (
       <View style={styles.signupMain}>
-        <Text
-          style={{
-            fontSize: 35,
-            fontWeight: "bold",
-            marginBottom: 20,
-            textAlign: "center"
-          }}
-        >
-          Sign Up
-        </Text>
+        <Text style={styles.signUpTitle}>Sign Up</Text>
         <TextInput
-          style={{
-            marginTop: 20,
-            height: 40,
-            borderColor: "gray",
-            borderWidth: 1,
-            marginRight: 20,
-            marginLeft: 20
-          }}
+          style={styles.signUpTextInput}
           onChangeText={firstName => this.setState({ firstName })}
           value={this.state.firstName}
           editable={true}
           onFocus={() => this.setState({ firstName: "" })}
         />
         <TextInput
-          style={{
-            marginTop: 20,
-            height: 40,
-            borderColor: "gray",
-            borderWidth: 1,
-            marginRight: 20,
-            marginLeft: 20
-          }}
+          style={styles.signUpTextInput}
           onChangeText={surname => this.setState({ surname })}
           value={this.state.surname}
           editable={true}
           onFocus={() => this.setState({ surname: "" })}
         />
         <Button
-          style={{
-            justifyContent: "center",
-            textAlign: "center",
-            marginLeft: 90,
-            marginRight: 90,
-            marginTop: 10,
-            fontWeight: "bold"
-          }}
+          style={styles.signUpButton}
           title="Submit"
           onPress={this.onPressButton}
         >
