@@ -31,6 +31,12 @@ class HomeContainer extends React.Component {
         )}
         {details.logged_in ? (
           <Button
+            title="Log out"
+            onPress={() => this.props.screenProps.logout()}
+          />
+        ) : null}
+        {details.logged_in ? (
+          <Button
             title="Pair Alexa"
             onPress={() => this.props.navigation.push("Handshake")}
           />
