@@ -8,5 +8,8 @@ export default (styles = StyleSheet.create({
     // containerStyle={{
     // backgroundColor: '#3D6DCC',
     //   justifyContent: 'space-around',}}
+  },
+  barStyle: {
+    backgroundColor: "#005EB8"
   }
 }));

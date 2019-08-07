@@ -11,7 +11,7 @@ class HomeContainer extends React.Component {
     const { details } = this.props.screenProps;
     return (
       <View style={styles.homeScreen}>
-        <Text>
+        <Text style={styles.welcomeTitle}>
           Hello{details.logged_in ? ` ${details.user.first_name}` : null},
           welcome to MEDIREP!
         </Text>
