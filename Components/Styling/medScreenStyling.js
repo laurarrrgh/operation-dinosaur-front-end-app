@@ -24,7 +24,8 @@ export default (styles = StyleSheet.create({
     fontSize: 14,
     paddingVertical: 5,
     paddingHorizontal: 15,
-    textAlign: "center"
+    textAlign: "center",
+    textTransform: "capitalize"
   },
   medsScreenButton: {
     justifyContent: "center",
@@ -32,6 +33,7 @@ export default (styles = StyleSheet.create({
     marginLeft: 90,
     marginRight: 90,
     marginTop: 10,
+    marginBottom: 15,
     fontWeight: "bold"
   }
 }));
