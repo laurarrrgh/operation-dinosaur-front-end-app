@@ -8,8 +8,8 @@ import HeaderBar from "./HeaderBar";
 class AddMeds extends Component {
   state = {
     user_id: 1,
-    type: "      Enter pills here",
-    due: "      Enter the time the pill is due here"
+    type: "Enter pills here",
+    due: "Enter the time the pill is due here"
   };
 
   onPressButton = () => {
