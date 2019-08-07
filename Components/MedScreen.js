@@ -13,7 +13,7 @@ class MedsContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.setState(this.props.screenProps.meds);
+    this.setState(this.props.screenProps.details.meds);
   }
 
   render() {
@@ -29,7 +29,13 @@ class MedsContainer extends React.Component {
           {meds.map(med => (
             <View key={med.id}>
               <Text> Medication: {med.type} </Text>
-              <Text> Due: {moment(med.due).format("HH:MM")}</Text>
+              <Text>
+                {" "}
+                Due:{" "}
+                {moment(med.due)
+                  .subtract(1, "hour")
+                  .format("LT")}
+              </Text>
               <Text> Taken: {med.taken ? "true" : "false"}</Text>
             </View>
           ))}

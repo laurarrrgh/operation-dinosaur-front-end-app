@@ -1,15 +1,19 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
-import moment from "moment"
+import moment from "moment";
 
 const EventsScreen = props => (
   <View style={styles.events}>
-    {props.screenProps.events.map(({id, time, description, user_id}) => (
-      <View key={id}>
-        <Text >{`Time: ${moment(time).format('DD-MM-YYYY HH:MM')}`}</Text>
-        <Text >{`event: ${description}`}</Text>
-      </View>
-    ))}
+    {props.screenProps.details.events
+      ? props.screenProps.details.events.map(
+          ({ id, time, description, user_id }) => (
+            <View key={id}>
+              <Text>{`Time: ${moment(time).format("DD-MM-YYYY HH:MM")}`}</Text>
+              <Text>{`event: ${description}`}</Text>
+            </View>
+          )
+        )
+      : null}
   </View>
 );
 
