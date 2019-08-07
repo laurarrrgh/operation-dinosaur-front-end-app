@@ -9,9 +9,10 @@ export default (styles = StyleSheet.create({
     textAlign: "center"
   },
   signUpTextInput: {
-    marginTop: 20,
-    height: 40,
+    marginTop: 10,
+    height: 50,
     borderColor: "gray",
+    textAlign: "center",
     borderWidth: 1,
     marginRight: 20,
     marginLeft: 20

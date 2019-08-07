@@ -34,26 +34,28 @@ class App extends Component {
 
   componentDidMount() {
     const { user_id } = this.state;
+    let fetches = [
+      api.getUser(user_id),
+      api.getEvents(user_id),
+      api.getQuiz(user_id),
+      api.getMeds(user_id)
+    ];
 
-    api.getUser(user_id).then(user => {
-      this.setState({ user });
-    });
-    api.getEvents(user_id).then(events => {
-      this.setState({ events });
-    });
-    api.getQuiz(user_id).then(quiz => {
-      this.setState({ quiz });
-    });
-    api.getMeds(user_id).then(meds => {
-      this.setState({ meds });
+    return Promise.all(fetches).then(([user, events, quiz, meds]) => {
+      this.setState({
+        user,
+        events,
+        quiz,
+        meds
+      });
     });
   }
 
-  componentDidUpdate = (prevProps, prevState) => {
-    if (this.state.user_id !== prevState.user_id) {
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.user_id !== this.state.user_id) {
       this.componentDidMount();
     }
-  };
+  }
 
   setUser = user_id => {
     this.setState({ user_id: user_id, logged_in: true });

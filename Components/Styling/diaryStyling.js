@@ -2,10 +2,7 @@ import React, { StyleSheet } from "react-native";
 
 export default (styles = StyleSheet.create({
   diaryMain: {
-    flex: 1,
-    padding: 45,
-    paddingTop: 100,
-    backgroundColor: "#fff"
+    marginTop: 88
   },
   diarySingle: {
     paddingBottom: 20
@@ -13,19 +10,22 @@ export default (styles = StyleSheet.create({
   diaryTitle: {
     fontSize: 38,
     fontWeight: "bold",
-    paddingBottom: 20,
+    margin: 20,
     textAlign: "center"
   },
   diaryCard: {
-    borderColor: "orange",
-    borderStyle: "solid",
-    borderRadius: 20,
-    borderWidth: 1.5,
-    padding: 15
+    marginBottom: 10,
+    marginHorizontal: 50,
+    shadowColor: "#768692",
+    shadowOffset: {
+      height: 2
+    },
+    shadowOpacity: 0.9
   },
   diaryText: {
     backgroundColor: "#fff",
     fontSize: 14,
-    paddingBottom: 1
+    paddingVertical: 5,
+    paddingHorizontal: 75
   }
 }));

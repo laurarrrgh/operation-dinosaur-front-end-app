@@ -5,7 +5,7 @@ import styles from "./Styling/diaryStyling";
 import HeaderBar from "./HeaderBar";
 
 const DiaryScreen = props => (
-  <View>
+  <View style={styles.diaryMain}>
     <HeaderBar />
     <Text style={styles.diaryTitle}>Quiz Results</Text>
     <ScrollView>

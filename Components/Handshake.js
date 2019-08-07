@@ -34,7 +34,7 @@ class Handshake extends Component {
           3. Read out the below 4-digit code:
         </Text>
         <Text style={styles.codeText}>{this.state.code}</Text>
-        <Text style={styles.handshakeBottomText}>
+        <Text style={styles.handshakeText}>
           4. If Alexa says "pairing successful", you have successfully paired
           the device and can return to the home screen. Otherwise, please repeat
           steps 1-3.

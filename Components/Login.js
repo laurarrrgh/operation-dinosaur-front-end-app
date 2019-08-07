@@ -8,7 +8,8 @@ import HeaderBar from "./HeaderBar";
 class Login extends Component {
   state = {
     firstName: null,
-    user_id: "    Enter your user id number here"
+    user_id: "    Enter your user id number",
+    password: "    Enter your password"
   };
 
   onPressButton = () => {
@@ -34,6 +35,13 @@ class Login extends Component {
           value={this.state.user_id.toString()}
           editable={true}
           onFocus={() => this.setState({ user_id: "" })}
+        />
+        <TextInput
+          style={styles.loginTextInput}
+          onChangeText={password => this.setState({ password })}
+          value={this.state.password.toString()}
+          editable={true}
+          onFocus={() => this.setState({ password: "" })}
         />
         <Button
           style={styles.loginButton}

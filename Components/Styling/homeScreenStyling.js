@@ -13,7 +13,7 @@ export default (styles = StyleSheet.create({
     fontSize: 25,
     alignItems: "flex-start",
     justifyContent: "center",
-    paddingTop: 50,
-    paddingLeft: 40
+    textAlign: "center",
+    marginTop: 50
   }
 }));

@@ -5,7 +5,7 @@ import styles from "./Styling/eventsStyling";
 import HeaderBar from "./HeaderBar";
 
 const EventsScreen = props => (
-  <View>
+  <View style={styles.eventsMain}>
     <HeaderBar />
     <Text style={styles.eventsTitle}>Events</Text>
     <ScrollView>
