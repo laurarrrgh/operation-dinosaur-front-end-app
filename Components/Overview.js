@@ -4,7 +4,7 @@ import HeaderBar from "./HeaderBar";
 
 const OverviewScreen = props => {
   return (
-    <View>
+    <View style={styles.overviewMain}>
       <HeaderBar />
       <Text>Overview. Coooool.</Text>
     </View>
@@ -12,11 +12,8 @@ const OverviewScreen = props => {
 };
 
 const styles = StyleSheet.create({
-  overview: {
-    flex: 1,
-    textAlign: "center",
-    backgroundColor: "#fff",
-    justifyContent: "center"
+  overviewMain: {
+    marginTop: 88
   }
 });
 export default OverviewScreen;
