@@ -6,8 +6,6 @@ import moment from "moment";
 import styles from "./Styling/medScreenStyling";
 
 class MedsContainer extends React.Component {
-  static navigationOptions = { header: null };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -16,7 +14,7 @@ class MedsContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.setState(this.props.screenProps.meds);
+    this.setState(this.props.screenProps.details.meds);
   }
 
   render() {
@@ -36,7 +34,10 @@ class MedsContainer extends React.Component {
                 <Text style={styles.medText}> Medication: {med.type} </Text>
                 <Text style={styles.medText}>
                   {" "}
-                  Due: {moment(med.due).format("HH:MM")}
+                  Due:{" "}
+                  {moment(med.due)
+                    .subtract(1, "hour")
+                    .format("LT")}
                 </Text>
                 <Text style={styles.medText}>
                   Taken: {med.taken ? "true" : "false"}

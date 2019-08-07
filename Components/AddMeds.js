@@ -5,8 +5,6 @@ import api from "../Utils/apiUtils";
 import styles from "./Styling/addMedsStyling";
 
 class AddMeds extends Component {
-  static navigationOptions = { header: null };
-
   state = {
     user_id: 1,
     type: "Enter pills here",

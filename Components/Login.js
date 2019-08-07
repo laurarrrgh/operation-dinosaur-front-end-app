@@ -12,9 +12,14 @@ class Login extends Component {
 
   onPressButton = () => {
     const { user_id } = this.state;
-    api.getUser(user_id).then(user => {
-      this.setState({ user_id: user.id, firstName: user.first_name });
-    });
+    api
+      .getUser(user_id)
+      .then(user => {
+        this.setState({ user_id: user.id, firstName: user.first_name });
+      })
+      .then(() => {
+        this.props.screenProps.setUser(this.state.user_id);
+      });
   };
 
   render() {
@@ -24,7 +29,7 @@ class Login extends Component {
         <TextInput
           style={styles.loginTextInput}
           onChangeText={user_id => this.setState({ user_id })}
-          value={this.state.user_id}
+          value={this.state.user_id.toString()}
           editable={true}
           onFocus={() => this.setState({ user_id: "" })}
         />

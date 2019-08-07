@@ -14,6 +14,7 @@ import * as Permissions from "expo-permissions";
 class App extends Component {
   state = {
     user_id: 1,
+    logged_in: false,
     user: {},
     events: [],
     quiz: {},
@@ -24,6 +25,7 @@ class App extends Component {
 
   componentDidMount() {
     const { user_id } = this.state;
+
     api.getUser(user_id).then(user => {
       this.setState({ user });
     });
@@ -38,9 +40,25 @@ class App extends Component {
     });
   }
 
+  componentDidUpdate = (prevProps, prevState) => {
+    if (this.state.user_id !== prevState.user_id) {
+      this.componentDidMount();
+    }
+  };
+
+  setUser = user_id => {
+    this.setState({ user_id: user_id, logged_in: true });
+  };
+
+  logout = () => {
+    this.setState({ logged_in: false });
+  };
+
   render() {
     const details = this.state;
-    return <AppContainer screenProps={details} />;
+    const setUser = this.setUser;
+    const logout = this.logout;
+    return <AppContainer screenProps={{ details, setUser, logout }} />;
   }
 
   async registerPush() {

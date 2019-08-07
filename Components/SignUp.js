@@ -13,14 +13,20 @@ class SignUp extends Component {
 
   onPressButton = () => {
     const { firstName, surname } = this.state;
-    api.signUp(firstName, surname).then(({ user }) => {
-      this.setState({
-        user_id: user.id,
-        firstName: "    Enter your first name here",
-        surname: "    Enter your surname here"
+    api
+      .signUp(firstName, surname)
+      .then(({ user }) => {
+        this.setState({
+          user_id: user.id,
+          firstName: "please enter your first name here",
+          surname: "please enter your surname here"
+        });
+      })
+      .then(() => {
+        this.props.screenProps.setUser(this.state.user_id);
       });
-    });
   };
+
   render() {
     return (
       <View style={styles.signupMain}>
