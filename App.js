@@ -10,6 +10,15 @@ import OverviewScreen from "./Components/Overview";
 import api from "./Utils/apiUtils";
 import { Notifications } from "expo";
 import * as Permissions from "expo-permissions";
+import styles from "./Components/Styling/styling";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import {
+  faHome,
+  faQuestion,
+  faPills,
+  faExclamation,
+  faBookOpen
+} from "@fortawesome/free-solid-svg-icons";
 
 class App extends Component {
   state = {
@@ -86,26 +95,62 @@ class App extends Component {
 const NavBar = createMaterialBottomTabNavigator(
   {
     Home: {
-      screen: HomeScreen
-      // navigationOptions: {
-      //   tabBarIcon: ({ tintColor }) => (
-      //     <View>
-      //       <Icon style={[{ color: tintColor }]} size={25} name={"ios-home"} />
-      //     </View>
-      //   )
-      // }
+      screen: HomeScreen,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <FontAwesomeIcon icon={faHome} />
+          </View>
+        )
+      }
     },
-    Quiz: { screen: DiaryScreen },
-    Medication: { screen: MedicationNavigator },
-    Events: { screen: EventsScreen },
-    Overview: { screen: OverviewScreen }
+    Quiz: {
+      screen: DiaryScreen,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <FontAwesomeIcon icon={faQuestion} />
+          </View>
+        )
+      }
+    },
+    Medication: {
+      screen: MedicationNavigator,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <FontAwesomeIcon icon={faPills} />
+          </View>
+        )
+      }
+    },
+    Events: {
+      screen: EventsScreen,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <FontAwesomeIcon icon={faExclamation} />
+          </View>
+        )
+      }
+    },
+    Overview: {
+      screen: OverviewScreen,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <FontAwesomeIcon icon={faBookOpen} />
+          </View>
+        )
+      }
+    }
   },
   {
     shifting: false,
     initialRouteName: "Home",
-    activeColor: "black",
+    activeColor: "#FAE100",
     inactiveColor: "white",
-    barStyle: { backgroundColor: "orange" }
+    barStyle: styles.barStyle
   }
 );
 const AppContainer = createAppContainer(NavBar);
