@@ -3,6 +3,7 @@ import { View, Text, Button, ScrollView } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import AddMeds from "./AddMeds";
 import moment from "moment";
+import api from "../Utils/apiUtils";
 
 class MedsContainer extends React.Component {
   constructor(props) {
@@ -52,7 +53,18 @@ class MedsContainer extends React.Component {
   }
 
   deleteMeds = id => {
-    console.log("del here");
+    api.patchMedication(id).then(
+      this.setState(() => {
+        const { meds } = this.state;
+        let medToChange = {};
+        meds.forEach(med => {
+          if (med.id === id) {
+            medToChange = med;
+          }
+        });
+        console.log(medToChange);
+      })
+    );
   };
 }
 
