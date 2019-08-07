@@ -40,7 +40,7 @@ class App extends Component {
   }
 
   setUser = user_id => {
-    this.setState({ user_id: user_id });
+    this.setState({ user_id: user_id, logged_in: true });
   };
 
   render() {
