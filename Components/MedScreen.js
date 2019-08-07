@@ -5,7 +5,7 @@ import AddMeds from "./AddMeds";
 import moment from "moment";
 import styles from "./Styling/medScreenStyling";
 import HeaderBar from "./HeaderBar";
-
+import api from "../Utils/apiUtils";
 
 class MedsContainer extends React.Component {
   constructor(props) {
@@ -33,15 +33,16 @@ class MedsContainer extends React.Component {
         <ScrollView>
           {meds.map(med => (
             <View key={med.id}>
-              <Text> Medication: {med.type} </Text>
-              <Text>
-                {" "}
-                Due:{" "}
+              <Text style={styles.medText}> Medication: {med.type} </Text>
+              <Text style={styles.medText}>
+                Due:
                 {moment(med.due)
                   .subtract(1, "hour")
                   .format("LT")}
               </Text>
-              <Text> Taken: {med.taken ? "true" : "false"}</Text>
+              <Text style={styles.medText}>
+                Taken: {med.taken ? "true" : "false"}
+              </Text>
               <Button
                 title={
                   med.status === 5
