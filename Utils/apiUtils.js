@@ -23,7 +23,7 @@ const getEvents = async user_id => {
 const getQuiz = async user_id => {
   const {
     data: { quizzes }
-  } = await axios.get(`${BASE_URL}/quiz/${user_id}`);
+  } = await axios.get(`${BASE_URL}/quiz/app/${user_id}`);
   return quizzes;
 };
 
