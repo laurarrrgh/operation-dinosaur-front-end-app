@@ -2,7 +2,7 @@ const axios = require("axios");
 const BASE_URL = "https://medirep-api.herokuapp.com/api";
 
 const getMeds = async user_id => {
-  const { data } = await axios.get(`${BASE_URL}/meds/app/${user_id}`);
+  const { data } = await axios.get(`${BASE_URL}/meds/app/daily/${user_id}`);
   return data;
 };
 

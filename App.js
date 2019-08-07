@@ -24,19 +24,27 @@ class App extends Component {
 
   componentDidMount() {
     const { user_id } = this.state;
+    let fetches = [
+      api.getUser(user_id),
+      api.getEvents(user_id),
+      api.getQuiz(user_id),
+      api.getMeds(user_id)
+    ];
 
-    api.getUser(user_id).then(user => {
-      this.setState({ user });
+    return Promise.all(fetches).then(([user, events, quiz, meds]) => {
+      this.setState({
+        user,
+        events,
+        quiz,
+        meds
+      });
     });
-    api.getEvents(user_id).then(events => {
-      this.setState({ events });
-    });
-    api.getQuiz(user_id).then(quiz => {
-      this.setState({ quiz });
-    });
-    api.getMeds(user_id).then(meds => {
-      this.setState({ meds });
-    });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.user_id !== this.state.user_id) {
+      this.componentDidMount();
+    }
   }
 
   setUser = user_id => {
@@ -44,7 +52,7 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.user_id);
+    console.log(this.state.events);
     const details = this.state;
     const setUser = this.setUser;
     return <AppContainer screenProps={{ details, setUser }} />;
