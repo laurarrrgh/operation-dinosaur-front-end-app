@@ -14,6 +14,13 @@ export default (styles = StyleSheet.create({
     textAlign: "center"
   },
   medSingle: { paddingTop: 20 },
+  medCard: {
+    borderColor: "orange",
+    borderStyle: "solid",
+    borderRadius: 20,
+    borderWidth: 1.5,
+    padding: 10
+  },
   medText: {
     backgroundColor: "#fff",
     fontSize: 14,

@@ -4,7 +4,8 @@ export default (styles = StyleSheet.create({
   homeScreen: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    backgroundColor: "#E8EDEE"
   },
   welcomeTitle: {
     paddingBottom: 50,
