@@ -16,8 +16,7 @@ class Login extends Component {
       .then(user => {
         this.setState({ user_id: user.id, firstName: user.first_name });
       })
-
-      .then(user => {
+      .then(() => {
         this.props.screenProps.setUser(this.state.user_id);
       });
   };
