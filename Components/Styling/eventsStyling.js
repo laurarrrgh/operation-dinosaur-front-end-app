@@ -27,6 +27,7 @@ export default (styles = StyleSheet.create({
     fontSize: 14,
     paddingVertical: 5,
     paddingHorizontal: 15,
-    textAlign: "center"
+    textAlign: "center",
+    textTransform: "capitalize"
   }
 }));
