@@ -39,6 +39,12 @@ class App extends Component {
     });
   }
 
+  componentDidUpdate = (prevProps, prevState) => {
+    if (this.state.user_id !== prevState.user_id) {
+      this.componentDidMount();
+    }
+  };
+
   setUser = user_id => {
     this.setState({ user_id: user_id, logged_in: true });
   };
