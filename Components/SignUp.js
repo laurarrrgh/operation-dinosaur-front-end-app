@@ -3,6 +3,7 @@ import { Text, View, TextInput } from "react-native";
 import { Button } from "native-base";
 import api from "../Utils/apiUtils";
 import styles from "./Styling/signUpStyling";
+import HeaderBar from "./HeaderBar";
 
 class SignUp extends Component {
   state = {
@@ -18,8 +19,8 @@ class SignUp extends Component {
       .then(({ user }) => {
         this.setState({
           user_id: user.id,
-          firstName: "please enter your first name here",
-          surname: "please enter your surname here"
+          firstName: " Enter your first name here",
+          surname: "  Enter your surname here"
         });
       })
       .then(() => {
@@ -29,7 +30,8 @@ class SignUp extends Component {
 
   render() {
     return (
-      <View style={styles.signupMain}>
+      <View>
+        <HeaderBar />
         <Text style={styles.signUpTitle}>Sign Up</Text>
         <TextInput
           style={styles.signUpTextInput}

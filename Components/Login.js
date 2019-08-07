@@ -3,6 +3,7 @@ import { Text, View, TextInput } from "react-native";
 import { Button } from "native-base";
 import api from "../Utils/apiUtils";
 import styles from "./Styling/loginStyling";
+import HeaderBar from "./HeaderBar";
 
 class Login extends Component {
   state = {
@@ -24,7 +25,8 @@ class Login extends Component {
 
   render() {
     return (
-      <View style={styles.loginMain}>
+      <View>
+        <HeaderBar />
         <Text style={styles.loginTitle}>Login</Text>
         <TextInput
           style={styles.loginTextInput}

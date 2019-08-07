@@ -2,9 +2,11 @@ import React from "react";
 import { Text, View, ScrollView } from "react-native";
 import moment from "moment";
 import styles from "./Styling/eventsStyling";
+import HeaderBar from "./HeaderBar";
 
 const EventsScreen = props => (
-  <View style={styles.eventsMain}>
+  <View>
+    <HeaderBar />
     <Text style={styles.eventsTitle}>Events</Text>
     <ScrollView>
       {props.screenProps.details.events

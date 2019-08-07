@@ -8,14 +8,19 @@ export default (styles = StyleSheet.create({
     borderWidth: 1,
     marginLeft: 20,
     marginRight: 20,
-    marginBottom: 10
+    marginTop: 20,
+    borderRadius: 15,
+    borderWidth: 1.5
   },
   addMedsButton: {
     justifyContent: "center",
     textAlign: "center",
-    marginLeft: 90,
-    marginRight: 90,
-    marginTop: 10,
-    fontWeight: "bold"
+    marginLeft: 120,
+    marginRight: 120,
+    marginTop: 20,
+    fontWeight: "bold",
+    fontSize: 50,
+    borderRadius: 15,
+    borderWidth: 1.5
   }
 }));

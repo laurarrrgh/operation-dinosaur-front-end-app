@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Text, View } from "react-native";
 import api from "../Utils/apiUtils";
 import styles from "./Styling/handshakeStyling";
+import HeaderBar from "./HeaderBar";
+import { Header } from "native-base";
 
 class Handshake extends Component {
   state = {
@@ -18,7 +20,8 @@ class Handshake extends Component {
 
   render() {
     return (
-      <View style={styles.handshakeMain}>
+      <View>
+        <HeaderBar />
         <Text style={styles.handshakeTitle}>
           Instructions For Pairing Alexa:
         </Text>

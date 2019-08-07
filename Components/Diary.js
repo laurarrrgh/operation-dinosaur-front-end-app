@@ -2,9 +2,11 @@ import React from "react";
 import { Text, View, ScrollView } from "react-native";
 import moment from "moment";
 import styles from "./Styling/diaryStyling";
+import HeaderBar from "./HeaderBar";
 
 const DiaryScreen = props => (
-  <View style={styles.diaryMain}>
+  <View>
+    <HeaderBar />
     <Text style={styles.diaryTitle}>Quiz Results</Text>
     <ScrollView>
       {props.screenProps.details.quiz

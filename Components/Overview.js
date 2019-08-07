@@ -1,9 +1,11 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
+import HeaderBar from "./HeaderBar";
 
 const OverviewScreen = props => {
   return (
-    <View style={styles.overview}>
+    <View>
+      <HeaderBar />
       <Text>Overview. Coooool.</Text>
     </View>
   );

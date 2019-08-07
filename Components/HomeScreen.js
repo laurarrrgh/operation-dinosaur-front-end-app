@@ -5,12 +5,14 @@ import Handshake from "./Handshake";
 import SignUp from "./SignUp";
 import Login from "./Login";
 import styles from "./Styling/homeScreenStyling";
+import HeaderBar from "./HeaderBar";
 
 class HomeContainer extends React.Component {
   render() {
     const { details } = this.props.screenProps;
     return (
-      <View style={styles.homeScreen}>
+      <View>
+        <HeaderBar />
         <Text style={styles.welcomeTitle}>
           Hello{details.logged_in ? ` ${details.user.first_name}` : null},
           welcome to MEDIREP!
@@ -54,12 +56,6 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: "Home"
-  },
-  {
-    headerMode: "none",
-    navigationOptions: {
-      headerVisible: false
-    }
   }
 );
 

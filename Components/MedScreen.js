@@ -4,6 +4,7 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import AddMeds from "./AddMeds";
 import moment from "moment";
 import styles from "./Styling/medScreenStyling";
+import HeaderBar from "./HeaderBar";
 
 class MedsContainer extends React.Component {
   constructor(props) {
@@ -20,7 +21,8 @@ class MedsContainer extends React.Component {
   render() {
     const { meds } = this.state;
     return (
-      <View style={styles.medsMain}>
+      <View>
+        <HeaderBar />
         <Text style={styles.medsTitle}>Medication Screen </Text>
         <Button
           style={styles.medsScreenButton}
@@ -58,12 +60,6 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: "Medications"
-  },
-  {
-    headerMode: "none",
-    navigationOptions: {
-      headerVisible: false
-    }
   }
 );
 

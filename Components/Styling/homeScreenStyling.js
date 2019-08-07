@@ -10,9 +10,10 @@ export default (styles = StyleSheet.create({
   welcomeTitle: {
     paddingBottom: 50,
     fontWeight: "bold",
-    fontSize: 30,
+    fontSize: 25,
     alignItems: "flex-start",
-    margin: 50,
-    textAlign: "center"
+    justifyContent: "center",
+    paddingTop: 50,
+    paddingLeft: 40
   }
 }));
