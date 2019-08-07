@@ -38,12 +38,22 @@ class MedsContainer extends React.Component {
                   .format("LT")}
               </Text>
               <Text> Taken: {med.taken ? "true" : "false"}</Text>
+              <Button
+                title="ADD NICE ICON HERE, LAURA"
+                onPress={() => {
+                  this.deleteMeds(med.id);
+                }}
+              />
             </View>
           ))}
         </ScrollView>
       </View>
     );
   }
+
+  deleteMeds = id => {
+    console.log("del here");
+  };
 }
 
 const AppNavigator = createStackNavigator(
