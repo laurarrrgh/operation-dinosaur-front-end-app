@@ -95,7 +95,7 @@ const NavBar = createMaterialBottomTabNavigator(
       //   )
       // }
     },
-    Diary: { screen: DiaryScreen },
+    Quiz: { screen: DiaryScreen },
     Medication: { screen: MedicationNavigator },
     Events: { screen: EventsScreen },
     Overview: { screen: OverviewScreen }
