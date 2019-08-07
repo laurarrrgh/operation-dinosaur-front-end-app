@@ -15,7 +15,9 @@ export default (styles = StyleSheet.create({
     textAlign: "center",
     borderWidth: 1,
     marginRight: 20,
-    marginLeft: 20
+    marginLeft: 20,
+    borderRadius: 15,
+    borderWidth: 1.5
   },
   signUpButton: {
     justifyContent: "center",
