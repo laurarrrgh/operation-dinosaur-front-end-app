@@ -44,9 +44,8 @@ class App extends Component {
 
   render() {
     const details = this.state;
-    const setUser = this.setUser;
-    console.log(this.state.user_id);
-    return <AppContainer screenProps={{ details, setUser }} />;
+    // const setUser = this.setUser;
+    return <AppContainer screenProps={details} />;
   }
 
   async registerPush() {
