@@ -4,26 +4,37 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import Handshake from "./Handshake";
 import SignUp from "./SignUp";
 import Login from "./Login";
+import Header from "./Header";
 
 class HomeContainer extends React.Component {
   render() {
+    const { details } = this.props.screenProps;
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Hello, welcome to MEDIREP!</Text>
-        <Button
-          title="Login"
-          onPress={() => this.props.navigation.push("Login")}
-        />
+        <Header />
+        <Text>
+          Hello{details.logged_in ? ` ${details.user.first_name}` : null},
+          welcome to MEDIREP!
+        </Text>
 
-        <Button
-          title="Sign Up"
-          onPress={() => this.props.navigation.push("SignUp")}
-        />
-
-        <Button
-          title="Pair Alexa"
-          onPress={() => this.props.navigation.push("Handshake")}
-        />
+        {details.logged_in ? null : (
+          <Button
+            title="Login"
+            onPress={() => this.props.navigation.push("Login")}
+          />
+        )}
+        {details.logged_in ? null : (
+          <Button
+            title="Sign Up"
+            onPress={() => this.props.navigation.push("SignUp")}
+          />
+        )}
+        {details.logged_in ? (
+          <Button
+            title="Pair Alexa"
+            onPress={() => this.props.navigation.push("Handshake")}
+          />
+        ) : null}
       </View>
     );
   }
