@@ -15,9 +15,12 @@ const OverviewScreen = props => {
   const slownessResults = quiz.map(function(quiz) {
     return quiz.slowness;
   });
-  // const stiffnessResults = quiz.map(function(quiz) {
-  //   return quiz.stiffness;
-  // });
+  const stiffnessResults = quiz.map(function(quiz) {
+    return quiz.stiffness;
+  });
+  const tremorResults = quiz.map(function(quiz) {
+    return quiz.tremor;
+  });
 
   return (
     <ScrollView>
@@ -57,7 +60,7 @@ const OverviewScreen = props => {
           ],
           datasets: [
             {
-              data: moodResults.slice(0, 7),
+              data: moodResults.slice(-7),
               color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`,
               strokeWidth: 2
             }
@@ -90,7 +93,71 @@ const OverviewScreen = props => {
           ],
           datasets: [
             {
-              data: slownessResults.slice(0, 7),
+              data: slownessResults.slice(-7),
+              color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`,
+              strokeWidth: 2
+            }
+          ]
+        }}
+        width={Dimensions.get("window").width}
+        height={220}
+        chartConfig={{
+          backgroundColor: "chartreuse",
+          backgroundGradientFrom: "chartreuse",
+          backgroundGradientTo: "#ffa726",
+          decimalPlaces: 2,
+          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+          style: {
+            borderRadius: 16
+          }
+        }}
+      />
+      <Text>Stiffness Chart</Text>
+      <LineChart
+        data={{
+          labels: [
+            "Friday",
+            "Saturday",
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday"
+          ],
+          datasets: [
+            {
+              data: stiffnessResults.slice(-7),
+              color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`,
+              strokeWidth: 2
+            }
+          ]
+        }}
+        width={Dimensions.get("window").width}
+        height={220}
+        chartConfig={{
+          backgroundColor: "chartreuse",
+          backgroundGradientFrom: "chartreuse",
+          backgroundGradientTo: "#ffa726",
+          decimalPlaces: 2,
+          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+          style: {
+            borderRadius: 16
+          }
+        }}
+      />
+      <Text>Tremor Chart</Text>
+      <LineChart
+        data={{
+          labels: [
+            "Friday",
+            "Saturday",
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday"
+          ],
+          datasets: [
+            {
+              data: tremorResults.slice(-7),
               color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`,
               strokeWidth: 2
             }
