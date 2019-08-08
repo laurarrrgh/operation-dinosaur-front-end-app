@@ -1,20 +1,23 @@
 import React, { StyleSheet } from "react-native";
 
 export default (styles = StyleSheet.create({
+  graphMain: {
+    marginTop: 88
+  },
   graphMainTitle: {
     fontSize: 38,
     fontWeight: "bold",
-    margin: 20,
+    margin: 10,
     textAlign: "center"
   },
-  graphMain: {
-    marginTop: 88,
-    marginBottom: 88
+  graphScrollView: {
+    paddingTop: 10,
+    marginBottom: 70
   },
   graphTitle: {
     fontSize: 18,
     fontWeight: "bold",
-    margin: 20,
+    margin: 10,
     textAlign: "center"
   }
 }));
