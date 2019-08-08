@@ -8,10 +8,10 @@ import HeaderBar from "./HeaderBar";
 class SignUp extends Component {
   state = {
     user_id: null,
-    firstName: "    Enter your first name",
-    surname: "    Enter your surname",
-    password: "    Enter your password",
-    confirmPassword: "    Confirm your password"
+    firstName: "Enter your first name",
+    surname: "Enter your surname",
+    password: "Enter your password",
+    confirmPassword: "Confirm your password"
   };
 
   onPressButton = () => {
