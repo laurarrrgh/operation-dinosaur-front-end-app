@@ -6,6 +6,7 @@ export default (styles = StyleSheet.create({
     fontSize: 35,
     fontWeight: "bold",
     marginBottom: 20,
+    marginTop: 20,
     textAlign: "center"
   },
   signUpTextInput: {
