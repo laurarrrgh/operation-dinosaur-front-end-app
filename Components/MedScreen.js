@@ -47,17 +47,22 @@ class MedsContainer extends React.Component {
                     .subtract(1, "hour")
                     .format("LT")}
                 </Text>
-                <Text style={styles.medText}>
-                  Taken: {med.taken ? "true" : "false"}
+                <Text
+                  style={{
+                    ...styles.medText,
+                    color: med.taken ? "#003087" : "red"
+                  }}
+                >
+                  Taken: {med.taken ? "yes" : "no"}
                 </Text>
               </View>
               <View style={styles.buttonRow}>
-                {med.status === 10 || med.status === 5 ? null : (
+                {med.taken || med.status === 5 ? null : (
                   <Button
                     style={styles.medsScreenButtonTaken}
                     title="Mark as Taken"
                     onPress={() => {
-                      med.status === 10 ? null : this.patchMeds(med.id);
+                      med.taken ? null : this.patchMeds(med.id);
                     }}
                     color="#005EB8"
                   />
@@ -79,7 +84,7 @@ class MedsContainer extends React.Component {
   }
 
   patchMeds = id => {
-    api.patchMedication(id).then(
+    api.patchMedication(id, { status: 10, taken: true }).then(
       this.setState(() => {
         const { meds, ...rest } = this.state;
         let medToChange = {};
@@ -89,13 +94,14 @@ class MedsContainer extends React.Component {
           }
         });
         medToChange.status = 10;
+        medToChange.taken = true;
         return { meds, ...rest };
       })
     );
   };
 
   deleteMeds = id => {
-    api.patchMedication(id).then(
+    api.patchMedication(id, { status: 5 }).then(
       this.setState(() => {
         const { meds, ...rest } = this.state;
         let medToChange = {};
@@ -105,7 +111,6 @@ class MedsContainer extends React.Component {
           }
         });
         medToChange.status = 5;
-        medToChange.taken = "true";
         return { meds, ...rest };
       })
     );
