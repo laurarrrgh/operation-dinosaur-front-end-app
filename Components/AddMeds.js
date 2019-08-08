@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Text, View, StyleSheet, TextInput } from "react-native";
 import { Button } from "native-base";
 import api from "../Utils/apiUtils";
-import styles from "./Styling/addMedsStyling";
+import styles from "./Styling/formStyling";
 import HeaderBar from "./HeaderBar";
 
 class AddMeds extends Component {
@@ -25,22 +25,24 @@ class AddMeds extends Component {
     return (
       <View>
         <HeaderBar />
+        <Text style={styles.formText}>Medication Name</Text>
         <TextInput
-          style={styles.addMedsTextInput}
+          style={styles.formTextInput}
           onChangeText={type => this.setState({ type })}
           value={this.state.type}
           editable={true}
           onFocus={() => this.setState({ type: "" })}
         />
+        <Text style={styles.formText}>Time Due</Text>
         <TextInput
-          style={styles.addMedsTextInput}
+          style={styles.formTextInput}
           onChangeText={due => this.setState({ due })}
           value={this.state.due}
           editable={true}
           onFocus={() => this.setState({ due: "" })}
         />
         <Button
-          style={styles.addMedsButton}
+          style={styles.formButton}
           title="Submit"
           onPress={this.onPressButton}
         >
