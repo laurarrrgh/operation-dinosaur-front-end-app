@@ -1,4 +1,5 @@
 import React, { StyleSheet } from "react-native";
+import { Row } from "native-base";
 
 export default (styles = StyleSheet.create({
   medsMain: {
@@ -40,6 +41,18 @@ export default (styles = StyleSheet.create({
     marginRight: 90,
     marginTop: 10,
     marginBottom: 15,
+    fontWeight: "bold"
+  },
+  buttonRow: {
+    flexDirection: "row",
+    justifyContent: "space-evenly"
+  },
+  medsScreenButtonTaken: {
+    justifyContent: "flex-end",
+    textAlign: "center",
+    marginLeft: 90,
+    marginRight: 90,
+    marginVertical: 1,
     fontWeight: "bold"
   },
   medsScreenButtonDelete: {

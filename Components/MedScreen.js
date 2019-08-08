@@ -19,6 +19,12 @@ class MedsContainer extends React.Component {
     this.setState(this.props.screenProps.details.meds);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.meds !== this.state.meds) {
+      this.componentDidMount();
+    }
+  }
+
   render() {
     const { meds } = this.state;
     return (
@@ -45,20 +51,48 @@ class MedsContainer extends React.Component {
                   Taken: {med.taken ? "true" : "false"}
                 </Text>
               </View>
-              <Button
-                style={styles.medsScreenButtonDelete}
-                title={med.status === 5 ? "Medication Removed" : "Delete"}
-                onPress={() => {
-                  med.status === 5 ? null : this.deleteMeds(med.id);
-                }}
-                color={med.status === 5 ? "red" : "blue"}
-              />
+              <View style={styles.buttonRow}>
+                {med.status === 10 || med.status === 5 ? null : (
+                  <Button
+                    style={styles.medsScreenButtonTaken}
+                    title="Mark as Taken"
+                    onPress={() => {
+                      med.status === 10 ? null : this.patchMeds(med.id);
+                    }}
+                    color="#005EB8"
+                  />
+                )}
+                <Button
+                  style={styles.medsScreenButtonDelete}
+                  title={med.status === 5 ? "Medication Removed" : "Delete"}
+                  onPress={() => {
+                    med.status === 5 ? null : this.deleteMeds(med.id);
+                  }}
+                  color={med.status === 5 ? "red" : "#003087"}
+                />
+              </View>
             </View>
           ))}
         </ScrollView>
       </View>
     );
   }
+
+  patchMeds = id => {
+    api.patchMedication(id).then(
+      this.setState(() => {
+        const { meds, ...rest } = this.state;
+        let medToChange = {};
+        meds.forEach(med => {
+          if (med.id === id) {
+            medToChange = med;
+          }
+        });
+        medToChange.status = 10;
+        return { meds, ...rest };
+      })
+    );
+  };
 
   deleteMeds = id => {
     api.patchMedication(id).then(
@@ -71,6 +105,7 @@ class MedsContainer extends React.Component {
           }
         });
         medToChange.status = 5;
+        medToChange.taken = "true";
         return { meds, ...rest };
       })
     );
