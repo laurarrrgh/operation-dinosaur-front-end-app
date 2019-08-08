@@ -30,9 +30,9 @@ class MedsContainer extends React.Component {
           title="Go to AddMeds"
           onPress={() => this.props.navigation.push("AddMeds")}
         />
-        <ScrollView>
+        <ScrollView style={{ paddingTop: 30 }}>
           {meds.map(med => (
-            <View key={med.id}>
+            <View key={med.id} style={styles.medCard}>
               <Text style={styles.medText}> Medication: {med.type} </Text>
               <Text style={styles.medText}>
                 Due:
@@ -44,11 +44,8 @@ class MedsContainer extends React.Component {
                 Taken: {med.taken ? "true" : "false"}
               </Text>
               <Button
-                title={
-                  med.status === 5
-                    ? "Medication Removed"
-                    : "ADD NICE ICON HERE, LAURA"
-                }
+                style={styles.medsScreenButtonDelete}
+                title={med.status === 5 ? "Medication Removed" : "Delete"}
                 onPress={() => {
                   this.deleteMeds(med.id);
                 }}
