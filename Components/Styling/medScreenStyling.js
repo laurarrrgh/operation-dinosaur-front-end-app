@@ -35,5 +35,14 @@ export default (styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 15,
     fontWeight: "bold"
+  },
+  medsScreenButtonDelete: {
+    justifyContent: "flex-end",
+    textAlign: "center",
+    marginLeft: 90,
+    marginRight: 90,
+    marginTop: 10,
+    marginBottom: 15,
+    fontWeight: "bold"
   }
 }));
