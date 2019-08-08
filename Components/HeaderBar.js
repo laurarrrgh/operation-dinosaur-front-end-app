@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, Header } from "react-native";
-import styles from "./Styling/styling";
+import styles from "./Styling/headerFooterStyling";
 
 const HeaderBar = () => {
   return (
