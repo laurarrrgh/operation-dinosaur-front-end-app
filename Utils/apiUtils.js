@@ -48,11 +48,11 @@ const postNewMedication = async (user_id, type, due) => {
   return data;
 };
 
-const patchMedication = async med_id => {
+const patchMedication = async (med_id, obj) => {
   const { medication } = await axios.patch(
     `${BASE_URL}/meds/app/all/${med_id}`,
     {
-      status: 5
+      ...obj
     }
   );
   return medication;
