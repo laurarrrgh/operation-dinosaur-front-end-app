@@ -1,15 +1,13 @@
 import React from "react";
 import { Text, View, StyleSheet, Dimensions, ScrollView } from "react-native";
 import { PieChart, LineChart } from "react-native-chart-kit";
-import HeaderBar from "./HeaderBar";
-
 
 const OverviewScreen = props => {
   const { meds } = props.screenProps.details.meds;
   const { quiz } = props.screenProps.details;
   const takenQuantity = meds.filter(({ status }) => status === 10).length;
-  const missedQuantity = meds.length - takenQuantity.length;
-  // const day = moment(new Date(Date.now())).format("dddd");
+  const missedQuantity = meds.length - takenQuantity;
+
   const moodResults = quiz.map(function(quiz) {
     return quiz.mood;
   });
@@ -28,8 +26,8 @@ const OverviewScreen = props => {
       <Text>Meds Taken</Text>
       <PieChart
         data={[
-          { name: "Taken", quantity: 3, color: "chartreuse" },
-          { name: "Not Taken", quantity: 1, color: "#00FF00" }
+          { name: "Taken", quantity: takenQuantity, color: "chartreuse" },
+          { name: "Not Taken", quantity: missedQuantity, color: "#00FF00" }
         ]}
         width={Dimensions.get("window").width}
         height={220}
