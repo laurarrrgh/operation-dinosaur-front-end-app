@@ -1,6 +1,9 @@
 import React, { StyleSheet } from "react-native";
 
 export default (styles = StyleSheet.create({
+  medsMain: {
+    paddingBottom: 200
+  },
   medSingle: {
     paddingTop: 20
   },
@@ -11,7 +14,6 @@ export default (styles = StyleSheet.create({
     textAlign: "center"
   },
   medCard: {
-    marginBottom: 5,
     marginHorizontal: 50,
     shadowColor: "#768692",
     shadowOffset: {
@@ -41,7 +43,7 @@ export default (styles = StyleSheet.create({
     textAlign: "center",
     marginLeft: 90,
     marginRight: 90,
-    marginTop: 10,
+    marginTop: 1,
     marginBottom: 15,
     fontWeight: "bold"
   }

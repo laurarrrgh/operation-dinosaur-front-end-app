@@ -22,7 +22,7 @@ class MedsContainer extends React.Component {
   render() {
     const { meds } = this.state;
     return (
-      <View>
+      <View style={styles.medsMain}>
         <HeaderBar />
         <Text style={styles.medsTitle}>Medication Screen </Text>
         <Button
@@ -32,17 +32,19 @@ class MedsContainer extends React.Component {
         />
         <ScrollView style={{ paddingTop: 30 }}>
           {meds.map(med => (
-            <View key={med.id} style={styles.medCard}>
-              <Text style={styles.medText}> Medication: {med.type} </Text>
-              <Text style={styles.medText}>
-                Due:
-                {moment(med.due)
-                  .subtract(1, "hour")
-                  .format("LT")}
-              </Text>
-              <Text style={styles.medText}>
-                Taken: {med.taken ? "true" : "false"}
-              </Text>
+            <View key={med.id}>
+              <View style={styles.medCard}>
+                <Text style={styles.medText}> Medication: {med.type} </Text>
+                <Text style={styles.medText}>
+                  Due:{" "}
+                  {moment(med.due)
+                    .subtract(1, "hour")
+                    .format("LT")}
+                </Text>
+                <Text style={styles.medText}>
+                  Taken: {med.taken ? "true" : "false"}
+                </Text>
+              </View>
               <Button
                 style={styles.medsScreenButtonDelete}
                 title={med.status === 5 ? "Medication Removed" : "Delete"}
