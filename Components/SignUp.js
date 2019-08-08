@@ -4,6 +4,7 @@ import { Button } from "native-base";
 import api from "../Utils/apiUtils";
 import styles from "./Styling/signUpStyling";
 import HeaderBar from "./HeaderBar";
+import { ScrollView } from "react-native-gesture-handler";
 
 class SignUp extends Component {
   state = {
@@ -36,45 +37,55 @@ class SignUp extends Component {
     return (
       <View>
         <HeaderBar />
-        <Text style={styles.signUpTitle}>Sign Up</Text>
-        <TextInput
-          style={styles.signUpTextInput}
-          onChangeText={firstName => this.setState({ firstName })}
-          value={this.state.firstName}
-          editable={true}
-          onFocus={() => this.setState({ firstName: "" })}
-        />
-        <TextInput
-          style={styles.signUpTextInput}
-          onChangeText={surname => this.setState({ surname })}
-          value={this.state.surname}
-          editable={true}
-          onFocus={() => this.setState({ surname: "" })}
-        />
-        <TextInput
-          style={styles.signUpTextInput}
-          onChangeText={password => this.setState({ password })}
-          value={this.state.password.toString()}
-          editable={true}
-          onFocus={() => this.setState({ password: "" })}
-        />
-        <TextInput
-          style={styles.signUpTextInput}
-          onChangeText={confirmPassword => this.setState({ confirmPassword })}
-          value={this.state.confirmPassword.toString()}
-          editable={true}
-          onFocus={() => this.setState({ confirmPassword: "" })}
-        />
-        <Button
-          style={styles.signUpButton}
-          title="Submit"
-          onPress={this.onPressButton}
-        >
-          <Text>Submit</Text>
-        </Button>
-        {this.state.user_id ? (
-          <Text>Sign up successful! Your user id is: {this.state.user_id}</Text>
-        ) : null}
+        <ScrollView>
+          <Text style={styles.signUpTitle}>Sign Up</Text>
+          <Text style={styles.signUpText}>First Name:</Text>
+          <TextInput
+            style={styles.signUpTextInput}
+            onChangeText={firstName => this.setState({ firstName })}
+            value={this.state.firstName}
+            editable={true}
+            onFocus={() => this.setState({ firstName: "" })}
+          />
+          <Text style={styles.signUpText}>Surname:</Text>
+          <TextInput
+            style={styles.signUpTextInput}
+            onChangeText={surname => this.setState({ surname })}
+            value={this.state.surname}
+            editable={true}
+            onFocus={() => this.setState({ surname: "" })}
+          />
+          <Text style={styles.signUpText}>Password</Text>
+          <TextInput
+            style={styles.signUpTextInput}
+            onChangeText={password => this.setState({ password })}
+            value={this.state.password.toString()}
+            secureTextEntry={true}
+            editable={true}
+            onFocus={() => this.setState({ password: "" })}
+          />
+          <Text style={styles.signUpText}>Confirm Password</Text>
+          <TextInput
+            style={styles.signUpTextInput}
+            onChangeText={confirmPassword => this.setState({ confirmPassword })}
+            value={this.state.confirmPassword.toString()}
+            secureTextEntry={true}
+            editable={true}
+            onFocus={() => this.setState({ confirmPassword: "" })}
+          />
+          <Button
+            style={styles.signUpButton}
+            title="Submit"
+            onPress={this.onPressButton}
+          >
+            <Text>Submit</Text>
+          </Button>
+          {this.state.user_id ? (
+            <Text>
+              Sign up successful! Your user id is: {this.state.user_id}
+            </Text>
+          ) : null}
+        </ScrollView>
       </View>
     );
   }
