@@ -50,7 +50,7 @@ const postNewMedication = async (user_id, type, due) => {
 
 const patchMedication = async med_id => {
   const { medication } = await axios.patch(
-    `${BASE_URL}/meds/app/daily/${med_id}`,
+    `${BASE_URL}/meds/app/all/${med_id}`,
     {
       status: 5
     }
