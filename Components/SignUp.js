@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Text, View, TextInput } from "react-native";
 import { Button } from "native-base";
 import api from "../Utils/apiUtils";
-import styles from "./Styling/signUpStyling";
+import styles from "./Styling/formStyling";
 import HeaderBar from "./HeaderBar";
 import { ScrollView } from "react-native-gesture-handler";
 
@@ -38,35 +38,35 @@ class SignUp extends Component {
       <View>
         <HeaderBar />
         <ScrollView>
-          <Text style={styles.signUpTitle}>Sign Up</Text>
-          <Text style={styles.signUpText}>First Name:</Text>
+          <Text style={styles.formTitle}>Sign Up</Text>
+          <Text style={styles.formText}>First Name:</Text>
           <TextInput
-            style={styles.signUpTextInput}
+            style={styles.formTextInput}
             onChangeText={firstName => this.setState({ firstName })}
             value={this.state.firstName}
             editable={true}
             onFocus={() => this.setState({ firstName: "" })}
           />
-          <Text style={styles.signUpText}>Surname:</Text>
+          <Text style={styles.formText}>Surname:</Text>
           <TextInput
-            style={styles.signUpTextInput}
+            style={styles.formTextInput}
             onChangeText={surname => this.setState({ surname })}
             value={this.state.surname}
             editable={true}
             onFocus={() => this.setState({ surname: "" })}
           />
-          <Text style={styles.signUpText}>Password</Text>
+          <Text style={styles.formText}>Password</Text>
           <TextInput
-            style={styles.signUpTextInput}
+            style={styles.formTextInput}
             onChangeText={password => this.setState({ password })}
             value={this.state.password.toString()}
             secureTextEntry={true}
             editable={true}
             onFocus={() => this.setState({ password: "" })}
           />
-          <Text style={styles.signUpText}>Confirm Password</Text>
+          <Text style={styles.formText}>Confirm Password</Text>
           <TextInput
-            style={styles.signUpTextInput}
+            style={styles.formTextInput}
             onChangeText={confirmPassword => this.setState({ confirmPassword })}
             value={this.state.confirmPassword.toString()}
             secureTextEntry={true}
@@ -74,7 +74,7 @@ class SignUp extends Component {
             onFocus={() => this.setState({ confirmPassword: "" })}
           />
           <Button
-            style={styles.signUpButton}
+            style={styles.formButton}
             title="Submit"
             onPress={this.onPressButton}
           >

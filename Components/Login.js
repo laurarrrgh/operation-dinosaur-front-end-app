@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Text, View, TextInput } from "react-native";
 import { Button } from "native-base";
 import api from "../Utils/apiUtils";
-import styles from "./Styling/loginStyling";
+import styles from "./Styling/formStyling";
 import HeaderBar from "./HeaderBar";
 import { ScrollView } from "react-native-gesture-handler";
 
@@ -30,18 +30,18 @@ class Login extends Component {
       <View>
         <HeaderBar />
         <ScrollView>
-          <Text style={styles.loginTitle}>Login</Text>
-          <Text style={styles.loginText}>User ID Number</Text>
+          <Text style={styles.formTitle}>Login</Text>
+          <Text style={styles.formText}>User ID Number</Text>
           <TextInput
-            style={styles.loginTextInput}
+            style={styles.formTextInput}
             onChangeText={user_id => this.setState({ user_id })}
             value={this.state.user_id.toString()}
             editable={true}
             onFocus={() => this.setState({ user_id: "" })}
           />
-          <Text style={styles.loginText}>Password</Text>
+          <Text style={styles.formText}>Password</Text>
           <TextInput
-            style={styles.loginTextInput}
+            style={styles.formTextInput}
             secureTextEntry={true}
             onChangeText={password => this.setState({ password })}
             value={this.state.password.toString()}
@@ -49,13 +49,13 @@ class Login extends Component {
             onFocus={() => this.setState({ password: "" })}
           />
           <Button
-            style={styles.loginButton}
+            style={styles.formButton}
             title="Submit"
             onPress={this.onPressButton}
           >
             <Text>Submit</Text>
           </Button>
-          <Text style={styles.loginText}>
+          <Text style={styles.formText}>
             Logged in as: {this.state.firstName}
           </Text>
         </ScrollView>
