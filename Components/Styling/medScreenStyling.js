@@ -37,8 +37,7 @@ export default (styles = StyleSheet.create({
   medsScreenButton: {
     justifyContent: "center",
     textAlign: "center",
-    marginLeft: 90,
-    marginRight: 90,
+    marginHorizontal: 90,
     marginTop: 10,
     marginBottom: 15,
     fontWeight: "bold"
@@ -50,16 +49,14 @@ export default (styles = StyleSheet.create({
   medsScreenButtonTaken: {
     justifyContent: "flex-end",
     textAlign: "center",
-    marginLeft: 90,
-    marginRight: 90,
+    marginHorizontal: 90,
     marginVertical: 1,
     fontWeight: "bold"
   },
   medsScreenButtonDelete: {
     justifyContent: "flex-end",
     textAlign: "center",
-    marginLeft: 90,
-    marginRight: 90,
+    marginHorizontal: 90,
     marginTop: 1,
     marginBottom: 15,
     fontWeight: "bold"

@@ -14,7 +14,11 @@ export default (styles = StyleSheet.create({
     padding: 10,
     textAlign: "center"
   },
-  handshakeText: { fontSize: 18, margin: 10, textAlign: "center" },
+  handshakeText: {
+    fontSize: 18,
+    margin: 10,
+    textAlign: "center"
+  },
   codeText: {
     fontWeight: "bold",
     fontSize: 50,

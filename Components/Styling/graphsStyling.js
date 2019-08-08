@@ -12,7 +12,7 @@ export default (styles = StyleSheet.create({
   },
   graphScrollView: {
     paddingTop: 10,
-    marginBottom: 70
+    marginBottom: 75
   },
   graphTitle: {
     fontSize: 18,
