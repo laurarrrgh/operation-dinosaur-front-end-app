@@ -14,19 +14,23 @@ export default (styles = StyleSheet.create({
     textAlign: "center",
     borderColor: "gray",
     borderWidth: 1,
-    marginTop: 10,
-    marginLeft: 20,
-    marginRight: 20,
+    marginHorizontal: 20,
     borderRadius: 15,
-    borderWidth: 1.5
+    borderWidth: 1.5,
+    paddingHorizontal: 2
   },
   loginButton: {
     justifyContent: "center",
     textAlign: "center",
-    marginLeft: 90,
-    marginRight: 90,
-    marginTop: 20,
+    marginHorizontal: 90,
+    marginTop: 10,
     fontWeight: "bold"
   },
-  loginLowerText: { padding: 10, marginTop: 10, textAlign: "center" }
+  loginText: {
+    padding: 10,
+    marginTop: 10,
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "bold"
+  }
 }));
