@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, styleSheet } from "react-native";
+import { View } from "react-native";
 import HomeScreen from "./Components/HomeScreen";
 import { createAppContainer } from "react-navigation";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
@@ -10,6 +10,15 @@ import OverviewScreen from "./Components/Overview";
 import api from "./Utils/apiUtils";
 import { Notifications } from "expo";
 import * as Permissions from "expo-permissions";
+import styles from "./Components/Styling/styling";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import {
+  faHome,
+  faQuestion,
+  faPills,
+  faExclamation,
+  faBookOpen
+} from "@fortawesome/free-solid-svg-icons";
 
 class App extends Component {
   state = {
@@ -87,16 +96,63 @@ class App extends Component {
 
 const NavBar = createMaterialBottomTabNavigator(
   {
-    Home: { screen: HomeScreen },
-    Diary: { screen: DiaryScreen },
-    Medication: { screen: MedicationNavigator },
-    Events: { screen: EventsScreen },
-    Overview: { screen: OverviewScreen }
+    Home: {
+      screen: HomeScreen,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <FontAwesomeIcon icon={faHome} />
+          </View>
+        )
+      }
+    },
+    Quiz: {
+      screen: DiaryScreen,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <FontAwesomeIcon icon={faQuestion} />
+          </View>
+        )
+      }
+    },
+    Medication: {
+      screen: MedicationNavigator,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <FontAwesomeIcon icon={faPills} />
+          </View>
+        )
+      }
+    },
+    Events: {
+      screen: EventsScreen,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <FontAwesomeIcon icon={faExclamation} />
+          </View>
+        )
+      }
+    },
+    Overview: {
+      screen: OverviewScreen,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <FontAwesomeIcon icon={faBookOpen} />
+          </View>
+        )
+      }
+    }
   },
   {
-    activeColor: "white",
-    color: "black",
-    barStyle: { backgroundColor: "orange" }
+    shifting: false,
+    initialRouteName: "Home",
+    activeColor: "#FAE100",
+    inactiveColor: "white",
+    barStyle: styles.barStyle
   }
 );
 const AppContainer = createAppContainer(NavBar);

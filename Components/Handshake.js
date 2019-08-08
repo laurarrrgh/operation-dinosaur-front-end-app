@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Text, View } from "react-native";
 import api from "../Utils/apiUtils";
+import styles from "./Styling/handshakeStyling";
+import HeaderBar from "./HeaderBar";
 
 class Handshake extends Component {
   state = {
@@ -17,19 +19,20 @@ class Handshake extends Component {
 
   render() {
     return (
-      <View
-        style={{
-          flex: 1,
-          alignItems: "center",
-          justifyContent: "center"
-        }}
-      >
-        <Text> Instructions For Pairing Alexa:</Text>
-        <Text> 1. Say "Open Diary App"</Text>
-        <Text> 2. Say "Pair a device"</Text>
-        <Text> 3. Read out the below 4-digit code:</Text>
-        <Text> {this.state.code}</Text>
-        <Text style={{ textAlign: "center" }}>
+      <View>
+        <HeaderBar />
+        <Text style={styles.handshakeTitle}>
+          Instructions For Pairing Alexa:
+        </Text>
+        <Text style={styles.handshakeText}>
+          1. Say "Alexa - Open Diary App"
+        </Text>
+        <Text style={styles.handshakeText}> 2. Say "Pair a device"</Text>
+        <Text style={styles.handshakeText}>
+          3. Read out the below 4-digit code:
+        </Text>
+        <Text style={styles.codeText}>{this.state.code}</Text>
+        <Text style={styles.handshakeText}>
           4. If Alexa says "pairing successful", you have successfully paired
           the device and can return to the home screen. Otherwise, please repeat
           steps 1-3.

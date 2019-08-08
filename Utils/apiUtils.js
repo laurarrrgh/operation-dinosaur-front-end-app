@@ -6,6 +6,12 @@ const getMeds = async user_id => {
   return data;
 };
 
+const getDailyMeds = async user_id => {
+  const { data } = await axios.get(`${BASE_URL}/meds/app/daily/${user_id}`);
+
+  return data;
+};
+
 const getUser = async user_id => {
   const {
     data: { user }
@@ -62,6 +68,7 @@ const signUp = async (firstName, surname) => {
 
 module.exports = {
   getMeds,
+  getDailyMeds,
   getUser,
   getEvents,
   getQuiz,

@@ -3,6 +3,8 @@ import { View, Text, Button, ScrollView } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import AddMeds from "./AddMeds";
 import moment from "moment";
+import styles from "./Styling/medScreenStyling";
+import HeaderBar from "./HeaderBar";
 import api from "../Utils/apiUtils";
 
 class MedsContainer extends React.Component {
@@ -20,32 +22,32 @@ class MedsContainer extends React.Component {
   render() {
     const { meds } = this.state;
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Medication Screen </Text>
+      <View>
+        <HeaderBar />
+        <Text style={styles.medsTitle}>Medication Screen </Text>
         <Button
+          style={styles.medsScreenButton}
           title="Go to AddMeds"
           onPress={() => this.props.navigation.push("AddMeds")}
         />
-        <ScrollView>
+        <ScrollView style={{ paddingTop: 30 }}>
           {meds.map(med => (
-            <View key={med.id}>
-              <Text> Medication: {med.type} </Text>
-              <Text>
-                {" "}
-                Due:{" "}
+            <View key={med.id} style={styles.medCard}>
+              <Text style={styles.medText}> Medication: {med.type} </Text>
+              <Text style={styles.medText}>
+                Due:
                 {moment(med.due)
                   .subtract(1, "hour")
                   .format("LT")}
               </Text>
-              <Text> Taken: {med.taken ? "true" : "false"}</Text>
+              <Text style={styles.medText}>
+                Taken: {med.taken ? "true" : "false"}
+              </Text>
               <Button
-                title={
-                  med.status === 5
-                    ? "Medication Removed"
-                    : "ADD NICE ICON HERE, LAURA"
-                }
+                style={styles.medsScreenButtonDelete}
+                title={med.status === 5 ? "Medication Removed" : "Delete"}
                 onPress={() => {
-                  this.deleteMeds(med.id);
+                  med.status === 5 ? null : this.deleteMeds(med.id);
                 }}
                 color={med.status === 5 ? "red" : "blue"}
               />
