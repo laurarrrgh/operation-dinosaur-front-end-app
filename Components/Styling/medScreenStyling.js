@@ -2,7 +2,7 @@ import React, { StyleSheet } from "react-native";
 
 export default (styles = StyleSheet.create({
   medsMain: {
-    paddingBottom: 200
+    backgroundColor: "white"
   },
   medSingle: {
     paddingTop: 20
@@ -10,10 +10,15 @@ export default (styles = StyleSheet.create({
   medsTitle: {
     fontSize: 38,
     fontWeight: "bold",
-    margin: 20,
+    margin: 10,
     textAlign: "center"
   },
+  medScrollView: {
+    paddingTop: 10,
+    marginBottom: 170
+  },
   medCard: {
+    backgroundColor: "#E8EDEE",
     marginHorizontal: 50,
     shadowColor: "#768692",
     shadowOffset: {
@@ -22,7 +27,6 @@ export default (styles = StyleSheet.create({
     shadowOpacity: 0.9
   },
   medText: {
-    backgroundColor: "#fff",
     fontSize: 14,
     paddingVertical: 5,
     paddingHorizontal: 15,

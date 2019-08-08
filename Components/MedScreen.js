@@ -30,7 +30,7 @@ class MedsContainer extends React.Component {
           title="Go to AddMeds"
           onPress={() => this.props.navigation.push("AddMeds")}
         />
-        <ScrollView style={{ paddingTop: 30 }}>
+        <ScrollView style={styles.medScrollView}>
           {meds.map(med => (
             <View key={med.id}>
               <View style={styles.medCard}>
