@@ -1,13 +1,17 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, TextInput, Alert } from "react-native";
+import { Text, View, TextInput } from "react-native";
 import { Button } from "native-base";
 import api from "../Utils/apiUtils";
+import styles from "./Styling/signUpStyling";
+import HeaderBar from "./HeaderBar";
 
 class SignUp extends Component {
   state = {
     user_id: null,
-    firstName: "please enter your first name here",
-    surname: "please enter your surname here"
+    firstName: "Enter your first name",
+    surname: "Enter your surname",
+    password: "Enter your password",
+    confirmPassword: "Confirm your password"
   };
 
   onPressButton = () => {
@@ -17,8 +21,10 @@ class SignUp extends Component {
       .then(({ user }) => {
         this.setState({
           user_id: user.id,
-          firstName: "please enter your first name here",
-          surname: "please enter your surname here"
+          firstName: "Enter your first name here",
+          surname: "Enter your surname here",
+          password: "Enter your password",
+          confirmPassword: "Confirm your password"
         });
       })
       .then(() => {
@@ -29,25 +35,38 @@ class SignUp extends Component {
   render() {
     return (
       <View>
+        <HeaderBar />
+        <Text style={styles.signUpTitle}>Sign Up</Text>
         <TextInput
-          style={{ height: 30, borderColor: "gray", borderWidth: 1 }}
+          style={styles.signUpTextInput}
           onChangeText={firstName => this.setState({ firstName })}
           value={this.state.firstName}
           editable={true}
           onFocus={() => this.setState({ firstName: "" })}
         />
         <TextInput
-          style={{ height: 30, borderColor: "gray", borderWidth: 1 }}
+          style={styles.signUpTextInput}
           onChangeText={surname => this.setState({ surname })}
           value={this.state.surname}
           editable={true}
           onFocus={() => this.setState({ surname: "" })}
         />
+        <TextInput
+          style={styles.signUpTextInput}
+          onChangeText={password => this.setState({ password })}
+          value={this.state.password.toString()}
+          editable={true}
+          onFocus={() => this.setState({ password: "" })}
+        />
+        <TextInput
+          style={styles.signUpTextInput}
+          onChangeText={confirmPassword => this.setState({ confirmPassword })}
+          value={this.state.confirmPassword.toString()}
+          editable={true}
+          onFocus={() => this.setState({ confirmPassword: "" })}
+        />
         <Button
-          style={{
-            justifyContent: "center",
-            textAlign: "center"
-          }}
+          style={styles.signUpButton}
           title="Submit"
           onPress={this.onPressButton}
         >
@@ -60,14 +79,5 @@ class SignUp extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    textAlign: "center"
-  }
-});
 
 export default SignUp;

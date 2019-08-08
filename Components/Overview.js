@@ -1,7 +1,8 @@
 import React from "react";
 import { Text, View, StyleSheet, Dimensions, ScrollView } from "react-native";
 import { PieChart, LineChart } from "react-native-chart-kit";
-// import moment from "moment";
+import HeaderBar from "./HeaderBar";
+
 
 const OverviewScreen = props => {
   const { meds } = props.screenProps.details.meds;
@@ -181,11 +182,8 @@ const OverviewScreen = props => {
 };
 
 const styles = StyleSheet.create({
-  overview: {
-    flex: 1,
-    textAlign: "center",
-    backgroundColor: "#fff",
-    justifyContent: "center"
+  overviewMain: {
+    marginTop: 88
   }
 });
 export default OverviewScreen;
