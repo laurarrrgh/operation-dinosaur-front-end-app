@@ -32,17 +32,15 @@ const OverviewScreen = props => {
           <Text style={styles.graphTitle}>Meds Taken</Text>
           <PieChart
             data={[
-              { name: "Taken", quantity: 3, color: "chartreuse" },
-              { name: "Missed", quantity: 1, color: "red" }
+              { name: "Taken", quantity: 3, color: "#005EB8" },
+              { name: "Missed", quantity: 1, color: "#FAE100" }
             ]}
             width={Dimensions.get("window").width}
             height={200}
             chartConfig={{
-              backgroundColor: "#e26a00",
-              backgroundGradientFrom: "#fb8c00",
-              backgroundGradientTo: "#ffa726",
+              backgroundColor: "#005EB8",
               decimalPlaces: 2,
-              color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+              color: () => `white`,
               style: {
                 borderRadius: 16
               }
@@ -57,18 +55,11 @@ const OverviewScreen = props => {
           <Text style={styles.graphTitle}>Mood Results</Text>
           <LineChart
             data={{
-              labels: [
-                "Friday",
-                "Saturday",
-                "Sunday",
-                "Monday",
-                "Tuesday",
-                "Wednesday"
-              ],
+              labels: ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed"],
               datasets: [
                 {
                   data: moodResults.slice(-7),
-                  color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`,
+                  color: () => `#003087`,
                   strokeWidth: 2
                 }
               ]
@@ -77,10 +68,10 @@ const OverviewScreen = props => {
             height={220}
             chartConfig={{
               backgroundColor: "#E8EDEE",
-              backgroundGradientFrom: "chartreuse",
-              backgroundGradientTo: "#ffa726",
+              backgroundGradientFrom: "#FAE100",
+              backgroundGradientTo: "#005EB8",
               decimalPlaces: 2,
-              color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+              color: () => `white`,
               style: {
                 borderRadius: 26
               }
@@ -91,18 +82,11 @@ const OverviewScreen = props => {
           <Text style={styles.graphTitle}>Slowness Results</Text>
           <LineChart
             data={{
-              labels: [
-                "Friday",
-                "Saturday",
-                "Sunday",
-                "Monday",
-                "Tuesday",
-                "Wednesday"
-              ],
+              labels: ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed"],
               datasets: [
                 {
                   data: slownessResults.slice(-7),
-                  color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`,
+                  color: () => `#003087`,
                   strokeWidth: 2
                 }
               ]
@@ -110,11 +94,11 @@ const OverviewScreen = props => {
             width={Dimensions.get("window").width}
             height={220}
             chartConfig={{
-              backgroundColor: "chartreuse",
-              backgroundGradientFrom: "chartreuse",
-              backgroundGradientTo: "#ffa726",
+              backgroundColor: "#E8EDEE",
+              backgroundGradientFrom: "#FAE100",
+              backgroundGradientTo: "#005EB8",
               decimalPlaces: 2,
-              color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+              color: () => `white`,
               style: {
                 borderRadius: 16
               }
@@ -125,18 +109,11 @@ const OverviewScreen = props => {
           <Text style={styles.graphTitle}>Stiffness Results</Text>
           <LineChart
             data={{
-              labels: [
-                "Friday",
-                "Saturday",
-                "Sunday",
-                "Monday",
-                "Tuesday",
-                "Wednesday"
-              ],
+              labels: ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed"],
               datasets: [
                 {
                   data: stiffnessResults.slice(-7),
-                  color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`,
+                  color: () => `#003087`,
                   strokeWidth: 2
                 }
               ]
@@ -144,11 +121,11 @@ const OverviewScreen = props => {
             width={Dimensions.get("window").width}
             height={220}
             chartConfig={{
-              backgroundColor: "chartreuse",
-              backgroundGradientFrom: "chartreuse",
-              backgroundGradientTo: "#ffa726",
+              backgroundColor: "#E8EDEE",
+              backgroundGradientFrom: "#FAE100",
+              backgroundGradientTo: "#005EB8",
               decimalPlaces: 2,
-              color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+              color: () => `white`,
               style: {
                 borderRadius: 16
               }
@@ -159,18 +136,11 @@ const OverviewScreen = props => {
           <Text style={styles.graphTitle}>Tremor Results</Text>
           <LineChart
             data={{
-              labels: [
-                "Friday",
-                "Saturday",
-                "Sunday",
-                "Monday",
-                "Tuesday",
-                "Wednesday"
-              ],
+              labels: ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed"],
               datasets: [
                 {
                   data: tremorResults.slice(-7),
-                  color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`,
+                  color: () => `#003087`,
                   strokeWidth: 2
                 }
               ]
@@ -178,11 +148,11 @@ const OverviewScreen = props => {
             width={Dimensions.get("window").width}
             height={220}
             chartConfig={{
-              backgroundColor: "chartreuse",
-              backgroundGradientFrom: "chartreuse",
-              backgroundGradientTo: "#ffa726",
+              backgroundColor: "#E8EDEE",
+              backgroundGradientFrom: "#FAE100",
+              backgroundGradientTo: "#005EB8",
               decimalPlaces: 2,
-              color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+              color: () => `white`,
               style: {
                 borderRadius: 16
               }
