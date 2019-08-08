@@ -6,7 +6,8 @@ export default (styles = StyleSheet.create({
     fontSize: 35,
     fontWeight: "bold",
     marginBottom: 20,
-    textAlign: "center"
+    textAlign: "center",
+    marginTop: 20
   },
   loginTextInput: {
     height: 50,
@@ -24,7 +25,7 @@ export default (styles = StyleSheet.create({
     textAlign: "center",
     marginLeft: 90,
     marginRight: 90,
-    marginTop: 10,
+    marginTop: 20,
     fontWeight: "bold"
   },
   loginLowerText: { padding: 10, marginTop: 10, textAlign: "center" }
