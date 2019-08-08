@@ -9,7 +9,7 @@ import { ScrollView } from "react-native-gesture-handler";
 class Login extends Component {
   state = {
     firstName: null,
-    user_id: "Enter your user id number",
+    user_id: "Enter your Username",
     password: "Enter your password"
   };
 
@@ -31,7 +31,7 @@ class Login extends Component {
         <HeaderBar />
         <ScrollView>
           <Text style={styles.formTitle}>Login</Text>
-          <Text style={styles.formText}>User ID Number</Text>
+          <Text style={styles.formText}>Username</Text>
           <TextInput
             style={styles.formTextInput}
             onChangeText={user_id => this.setState({ user_id })}
