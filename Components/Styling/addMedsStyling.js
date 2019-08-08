@@ -1,10 +1,14 @@
 import React, { StyleSheet } from "react-native";
 
 export default (styles = StyleSheet.create({
-  addMedsMain: { paddingTop: 50, paddingLeft: 20 },
+  addMedsMain: {
+    paddingTop: 50,
+    paddingLeft: 20,
+    backgroundColor: "white"
+  },
   addMedsTextInput: {
     height: 50,
-    borderColor: "gray",
+    borderColor: "#003087",
     borderWidth: 1,
     marginLeft: 20,
     marginRight: 20,
@@ -16,12 +20,10 @@ export default (styles = StyleSheet.create({
   addMedsButton: {
     justifyContent: "center",
     textAlign: "center",
-    marginLeft: 120,
-    marginRight: 120,
-    marginTop: 20,
-    fontWeight: "bold",
+    marginHorizontal: 90,
+    marginTop: 10,
     fontSize: 50,
-    borderRadius: 15,
-    borderWidth: 1.5
+    fontWeight: "bold",
+    backgroundColor: "#FAE100"
   }
 }));

@@ -3,7 +3,8 @@ import React, { StyleSheet } from "react-native";
 export default (styles = StyleSheet.create({
   signupMain: {
     paddingTop: 50,
-    paddingLeft: 20
+    paddingLeft: 20,
+    backgroundColor: "white"
   },
   signUpTitle: {
     fontSize: 35,
@@ -13,7 +14,7 @@ export default (styles = StyleSheet.create({
   },
   signUpTextInput: {
     height: 50,
-    borderColor: "gray",
+    borderColor: "#003087",
     textAlign: "center",
     borderWidth: 1,
     marginHorizontal: 20,
@@ -25,7 +26,8 @@ export default (styles = StyleSheet.create({
     textAlign: "center",
     marginHorizontal: 90,
     marginTop: 10,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    backgroundColor: "#FAE100"
   },
   signUpText: {
     padding: 10,
