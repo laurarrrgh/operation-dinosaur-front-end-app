@@ -8,16 +8,16 @@ import HeaderBar from "./HeaderBar";
 class AddMeds extends Component {
   state = {
     user_id: 1,
-    type: "Enter pills here",
-    due: "Enter the time the pill is due here"
+    type: "Enter the name of your medication",
+    due: "Enter the time the medication is due"
   };
 
   onPressButton = () => {
     const { user_id, type, due } = this.state;
     api.postNewMedication(user_id, type, due).then(
       this.setState({
-        type: "Enter pills here",
-        due: "Enter the time the pill is due here"
+        type: "Enter the name of your medication",
+        due: "Enter the time the medication is due"
       })
     );
   };
