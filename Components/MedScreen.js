@@ -47,7 +47,7 @@ class MedsContainer extends React.Component {
                 style={styles.medsScreenButtonDelete}
                 title={med.status === 5 ? "Medication Removed" : "Delete"}
                 onPress={() => {
-                  this.deleteMeds(med.id);
+                  med.status === 5 ? null : this.deleteMeds(med.id);
                 }}
                 color={med.status === 5 ? "red" : "blue"}
               />
