@@ -8,16 +8,16 @@ import HeaderBar from "./HeaderBar";
 class AddMeds extends Component {
   state = {
     user_id: 1,
-    type: "Enter the name of your medication",
-    due: "Enter the time the medication is due"
+    type: "",
+    due: ""
   };
 
   onPressButton = () => {
     const { user_id, type, due } = this.state;
     api.postNewMedication(user_id, type, due).then(
       this.setState({
-        type: "Enter the name of your medication",
-        due: "Enter the time the medication is due"
+        type: "",
+        due: ""
       })
     );
   };
@@ -27,19 +27,19 @@ class AddMeds extends Component {
         <HeaderBar />
         <Text style={styles.formText}>Medication Name</Text>
         <TextInput
+          placeholder="Name of medication"
           style={styles.formTextInput}
           onChangeText={type => this.setState({ type })}
           value={this.state.type}
           editable={true}
-          onFocus={() => this.setState({ type: "" })}
         />
         <Text style={styles.formText}>Time Due</Text>
         <TextInput
+          placeholder="Time Due"
           style={styles.formTextInput}
           onChangeText={due => this.setState({ due })}
           value={this.state.due}
           editable={true}
-          onFocus={() => this.setState({ due: "" })}
         />
         <Button
           style={styles.formButton}
