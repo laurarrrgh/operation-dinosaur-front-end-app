@@ -1,5 +1,6 @@
 const axios = require("axios");
 const BASE_URL = "https://medirep-api.herokuapp.com/api";
+import moment from "moment";
 
 const getMeds = async user_id => {
   const { data } = await axios.get(`${BASE_URL}/meds/app/daily/${user_id}`);
@@ -40,9 +41,16 @@ const get4DigitNumber = async user_id => {
   return code.code;
 };
 
+const timeFormat = time => {
+  const todaysDate = moment(Date.now()).format("YYYY-MM-DD");
+  return new Date(`${todaysDate} ${time}`);
+};
+
 const postNewMedication = async (user_id, type, due) => {
-  const newMeds = { type: type, due: due };
-  const { data } = await axios.post(`${BASE_URL}/meds/app/daily/${user_id}`, {
+  const formattedDue = new Date(moment("2019-08-09 " + due));
+
+  const newMeds = { type: type, due: formattedDue };
+  const { data } = await axios.post(`${BASE_URL}/meds/app/all/${user_id}`, {
     ...newMeds
   });
   return data;
