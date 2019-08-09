@@ -64,7 +64,6 @@ class SignUp extends Component {
             value={this.state.password.toString()}
             secureTextEntry={true}
             editable={true}
-            onFocus={() => this.setState({ password: "" })}
           />
           <Text style={styles.formText}>Confirm Password</Text>
           <TextInput
