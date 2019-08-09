@@ -1,18 +1,29 @@
 import React, { Component } from "react";
-import { View, Text, styleSheet } from "react-native";
+import { View } from "react-native";
 import HomeScreen from "./Components/HomeScreen";
-import { createAppContainer, createBottomTabNavigator } from "react-navigation";
+import { createAppContainer } from "react-navigation";
+import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 import DiaryScreen from "./Components/Diary";
-import MedScreen from "./Components/MedScreen";
+import MedicationNavigator from "./Components/MedScreen";
 import EventsScreen from "./Components/Events";
 import OverviewScreen from "./Components/Overview";
 import api from "./Utils/apiUtils";
 import { Notifications } from "expo";
 import * as Permissions from "expo-permissions";
+import styles from "./Components/Styling/headerFooterStyling";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import {
+  faHome,
+  faQuestion,
+  faPills,
+  faExclamation,
+  faBookOpen
+} from "@fortawesome/free-solid-svg-icons";
 
 class App extends Component {
   state = {
     user_id: 1,
+    logged_in: false,
     user: {},
     events: [],
     quiz: {},
@@ -23,31 +34,42 @@ class App extends Component {
 
   componentDidMount() {
     const { user_id } = this.state;
-    api.getUser(user_id).then(user => {
-      this.setState({ user });
-    });
-    api.getEvents(user_id).then(events => {
-      this.setState({ events });
-    });
-    api.getQuiz(user_id).then(quiz => {
-      this.setState({ quiz });
-    });
-    api.getMeds(user_id).then(meds => {
-      this.setState({ meds });
+    let fetches = [
+      api.getUser(user_id),
+      api.getEvents(user_id),
+      api.getQuiz(user_id),
+      api.getMeds(user_id)
+    ];
+
+    return Promise.all(fetches).then(([user, events, quiz, meds]) => {
+      this.setState({
+        user,
+        events,
+        quiz,
+        meds
+      });
     });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.user_id !== this.state.user_id) {
+      this.componentDidMount();
+    }
+  }
+
+  setUser = user_id => {
+    this.setState({ user_id: user_id, logged_in: true });
+  };
+
+  logout = () => {
+    this.setState({ logged_in: false });
+  };
+
   render() {
-    const NavBar = createBottomTabNavigator({
-      Home: { screen: HomeScreen },
-      Diary: { screen: DiaryScreen },
-      Medication: { screen: MedScreen },
-      Events: { screen: EventsScreen },
-      Overview: { screen: OverviewScreen }
-    });
-    const AppContainer = createAppContainer(NavBar);
     const details = this.state;
-    return <AppContainer screenProps={details} />;
+    const setUser = this.setUser;
+    const logout = this.logout;
+    return <AppContainer screenProps={{ details, setUser, logout }} />;
   }
 
   async registerPush() {
@@ -71,5 +93,68 @@ class App extends Component {
     this.registerPush();
   }
 }
+
+const NavBar = createMaterialBottomTabNavigator(
+  {
+    Home: {
+      screen: HomeScreen,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <FontAwesomeIcon icon={faHome} />
+          </View>
+        )
+      }
+    },
+    Quiz: {
+      screen: DiaryScreen,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <FontAwesomeIcon icon={faQuestion} />
+          </View>
+        )
+      }
+    },
+    Medication: {
+      screen: MedicationNavigator,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <FontAwesomeIcon icon={faPills} />
+          </View>
+        )
+      }
+    },
+    Events: {
+      screen: EventsScreen,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <FontAwesomeIcon icon={faExclamation} />
+          </View>
+        )
+      }
+    },
+    Overview: {
+      screen: OverviewScreen,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <FontAwesomeIcon icon={faBookOpen} />
+          </View>
+        )
+      }
+    }
+  },
+  {
+    shifting: false,
+    initialRouteName: "Home",
+    activeColor: "#FAE100",
+    inactiveColor: "white",
+    barStyle: styles.barStyle
+  }
+);
+const AppContainer = createAppContainer(NavBar);
 
 export default App;
