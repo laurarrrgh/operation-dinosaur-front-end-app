@@ -46,7 +46,6 @@ class SignUp extends Component {
             onChangeText={firstName => this.setState({ firstName })}
             value={this.state.firstName}
             editable={true}
-            onFocus={() => this.setState({ firstName: "" })}
           />
           <Text style={styles.formText}>Surname:</Text>
           <TextInput
@@ -55,7 +54,6 @@ class SignUp extends Component {
             onChangeText={surname => this.setState({ surname })}
             value={this.state.surname}
             editable={true}
-            onFocus={() => this.setState({ surname: "" })}
           />
           <Text style={styles.formText}>Password</Text>
           <TextInput
@@ -65,7 +63,6 @@ class SignUp extends Component {
             value={this.state.password.toString()}
             secureTextEntry={true}
             editable={true}
-            onFocus={() => this.setState({ password: "" })}
           />
           <Text style={styles.formText}>Confirm Password</Text>
           <TextInput
@@ -75,7 +72,6 @@ class SignUp extends Component {
             value={this.state.confirmPassword.toString()}
             secureTextEntry={true}
             editable={true}
-            onFocus={() => this.setState({ confirmPassword: "" })}
           />
           <Button
             style={styles.formButton}

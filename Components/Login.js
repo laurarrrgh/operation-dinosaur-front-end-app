@@ -38,7 +38,6 @@ class Login extends Component {
             onChangeText={user_id => this.setState({ user_id })}
             value={this.state.user_id.toString()}
             editable={true}
-            onFocus={() => this.setState({ user_id: "" })}
           />
           <Text style={styles.formText}>Password</Text>
           <TextInput
@@ -48,7 +47,6 @@ class Login extends Component {
             onChangeText={password => this.setState({ password })}
             value={this.state.password.toString()}
             editable={true}
-            onFocus={() => this.setState({ password: "" })}
           />
           <Button
             style={styles.formButton}
