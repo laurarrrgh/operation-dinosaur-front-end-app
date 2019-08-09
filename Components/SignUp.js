@@ -46,7 +46,6 @@ class SignUp extends Component {
             onChangeText={firstName => this.setState({ firstName })}
             value={this.state.firstName}
             editable={true}
-            onFocus={() => this.setState({ firstName: "" })}
           />
           <Text style={styles.formText}>Surname:</Text>
           <TextInput
