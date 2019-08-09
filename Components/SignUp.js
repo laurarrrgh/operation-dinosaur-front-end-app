@@ -9,10 +9,10 @@ import { ScrollView } from "react-native-gesture-handler";
 class SignUp extends Component {
   state = {
     user_id: null,
-    firstName: "Enter your first name",
-    surname: "Enter your surname",
-    password: "Enter your password",
-    confirmPassword: "Confirm your password"
+    firstName: "",
+    surname: "",
+    password: "",
+    confirmPassword: ""
   };
 
   onPressButton = () => {
@@ -22,10 +22,10 @@ class SignUp extends Component {
       .then(({ user }) => {
         this.setState({
           user_id: user.id,
-          firstName: "Enter your first name here",
-          surname: "Enter your surname here",
-          password: "Enter your password",
-          confirmPassword: "Confirm your password"
+          firstName: "",
+          surname: "",
+          password: "",
+          confirmPassword: ""
         });
       })
       .then(() => {
@@ -41,6 +41,7 @@ class SignUp extends Component {
           <Text style={styles.formTitle}>Sign Up</Text>
           <Text style={styles.formText}>First Name:</Text>
           <TextInput
+            placeholder="Enter your first name"
             style={styles.formTextInput}
             onChangeText={firstName => this.setState({ firstName })}
             value={this.state.firstName}
@@ -49,6 +50,7 @@ class SignUp extends Component {
           />
           <Text style={styles.formText}>Surname:</Text>
           <TextInput
+            placeholder="Enter your surname"
             style={styles.formTextInput}
             onChangeText={surname => this.setState({ surname })}
             value={this.state.surname}
@@ -57,6 +59,7 @@ class SignUp extends Component {
           />
           <Text style={styles.formText}>Password</Text>
           <TextInput
+            placeholder="Enter your password"
             style={styles.formTextInput}
             onChangeText={password => this.setState({ password })}
             value={this.state.password.toString()}
@@ -66,6 +69,7 @@ class SignUp extends Component {
           />
           <Text style={styles.formText}>Confirm Password</Text>
           <TextInput
+            placeholder="Confirm your password"
             style={styles.formTextInput}
             onChangeText={confirmPassword => this.setState({ confirmPassword })}
             value={this.state.confirmPassword.toString()}
